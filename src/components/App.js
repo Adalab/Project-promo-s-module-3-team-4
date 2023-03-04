@@ -1,4 +1,6 @@
 import '../styles/App.scss';
+import cover from '../images/cover.jpeg';
+import user from '../images/user.jpeg';
 
 function App() {
   return (
@@ -10,7 +12,7 @@ function App() {
           </header>
           <main className="main">
             <section className="preview">
-              <img className="image" src="./images/cover.jpeg" alt="" />
+              <img className="image" src={cover} alt="" />
 
               <section className="autor">
                 <section className="info-project">
@@ -31,7 +33,7 @@ function App() {
                 </section>
 
                 <section className="info-autor">
-                  <img className="image" src="./images/user.jpeg" alt="" />
+                  <img className="image" src={user} alt="" />
                   <p className="job">Full Stack Developer</p>
                   <p className="name">Emmelie Björklund</p>
                 </section>
@@ -125,9 +127,7 @@ function App() {
 
               <section className="card">
                 <span className=""> La tarjeta ha sido creada: </span>
-                <a href="" className="" target="_blank" rel="noreferrer">
-                  {' '}
-                </a>
+                <a href="" className="" target="_blank" rel="noreferrer"></a>
               </section>
             </section>
           </main>
