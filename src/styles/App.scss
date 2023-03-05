@@ -1,13 +1,9 @@
 /* Aquí van tus estilos */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-  }
+
+
   
   .container {
-    background-color: #302c42;
+    background-color: $dark;
     height: 100vh;
     padding: 20px;
   }
@@ -19,7 +15,7 @@
   }
   
   .header .text {
-    color: white;
+    color: $white;
   }
   
   .main {
@@ -28,14 +24,14 @@
     height: 80vh;
   }
   .main .title {
-    color: #ffffff;
+    color:$white;
     text-align: center;
   }
   
   .main .ask-info {
     padding: 20px;
     text-align: center;
-    color: white;
+    color: $white;
   }
   
   .main .ask-info .subtitle {
@@ -59,7 +55,7 @@
   }
   
   .main .form {
-    background-color: #302c42;
+    background-color: $dark;
     width: 40%;
   }
   
@@ -73,17 +69,17 @@
   
   .main .input,
   .textarea {
-    background-color: #302c42;
-    border-color: white;
+    background-color: $dark;
+    border-color: $white;
     border-radius: 40px;
     height: 42.72px;
-    color: #ffffff;
+    color: $white;
     padding-left: 15px;
     padding-top: 5px;
   }
   .main .input::placeholder,
   .textarea::placeholder {
-    color: #ffffff;
+    color: $white;
   }
   
   .main .textarea {
@@ -98,18 +94,17 @@
   .main .btn-large {
     width: 160px;
     margin-top: 10px;
-    color: white;
+    color: $white;
     text-align: center;
     border: none;
-  
     height: 43px;
-    background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);
+    background: linear-gradient(90deg, #8176af -1.57%, #c0b7e8 98.43%);;
     border-radius: 40px;
   }
   
   .main .btn-large {
     width: 200px;
-    border: solid 2px white;
+    border: solid 2px $white;
   }
   
   .main .preview {
@@ -123,7 +118,7 @@
   }
   
   .main .preview .autor {
-    background-color: white;
+    background-color: $white;
     color: #3e3e3e;
     width: 90%;
     height: 50%;
@@ -150,7 +145,7 @@
   
   .info-autor .job {
     font-weight: bold;
-    color: black;
+    color: $black-80;
     font-size: 14px;
   }
   
@@ -168,7 +163,7 @@
   }
   .info-project .title {
     font-size: 20px;
-    color: black;
+    color: $black-80;
     margin-bottom: 10px;
   }
   
@@ -203,8 +198,8 @@
   }
   
   .btn-color-dark {
-    background-color: black;
-    color: white;
+    background-color: $black-80;
+    color: $white;
   }
   
   .technologies {
@@ -216,7 +211,7 @@
   }
   
   .card {
-    color: white;
+    color: $white;
     text-align: center;
     padding: 20px;
   }
