@@ -6,7 +6,6 @@ import icongithub from '../images/iconogithub.png';
 import { useState } from 'react';
 
 function App() {
-
   const [name, setName] = useState('');
   const [slogan, setSlogan] = useState('');
   const [repo, setRepo] = useState('');
@@ -15,47 +14,40 @@ function App() {
   const [desc, setDesc] = useState('');
   const [autor, setAutor] = useState('');
   const [job, setJob] = useState('');
+  const [mensj, setMensj] = useState('');
 
-  const handleInput = (ev) =>{
-    /*
-    ev.target = <input
-                  className="input"
-                  type="text"
-                  placeholder="Nombre del proyecto"
-                  name="name"
-                  id="name"
-                  onChange={handleInput}
-                  value={name}
-                />
-    */
+  const handleInput = (ev) => {
     ev.preventDefault();
     const inputValue = ev.target.value;
     const inputName = ev.target.name;
 
-    if(inputName === 'name'){
+    if (inputName === 'name') {
       setName(inputValue);
-    }else if(inputName === 'slogan'){
+    } else if (inputName === 'slogan') {
       setSlogan(inputValue);
-    }else if(inputName === 'repo'){
+    } else if (inputName === 'repo') {
       setRepo(inputValue);
-    }else if(inputName === 'demo'){
+    } else if (inputName === 'demo') {
       setDemo(inputValue);
-    }else if(inputName === 'technologies'){
+    } else if (inputName === 'technologies') {
       setTechnologies(inputValue);
-    }else if(inputName === 'desc'){
+    } else if (inputName === 'desc') {
       setDesc(inputValue);
-    }else if(inputName === 'autor'){
+    } else if (inputName === 'autor') {
       setAutor(inputValue);
-    }else if(inputName === 'job'){
+    } else if (inputName === 'job') {
       setJob(inputValue);
     }
-  }
+  };
 
-const handleClickCreateCard = () =>{
-
-}
-
-
+  const handleClickCreateCard = (ev) => {
+    ev.preventDefault();
+    let regex = new RegExp(/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@$_./]*$/);
+    if (regex.test(repo)) {
+    } else {
+      setMensj('Escribe bien joder');
+    }
+  };
 
   return (
     <div className="App">
@@ -75,12 +67,30 @@ const handleClickCreateCard = () =>{
 
                   <h2 className="title"> {name || 'Elegant Workspace'}</h2>
                   <p className="slogan">{slogan || 'Diseños Exclusivos'}</p>
-                   <p className="desc">
-                    {desc || 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!'} </p>
+                  <p className="desc">
+                    {desc ||
+                      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!'}{' '}
+                  </p>
                   <section className="technologies">
-                    <p className="text">{technologies || 'React JS, MongoDB'}</p>
-                    <a href='' target='_blank' ><img src={icongithub} title='enlace a repositorio' alt='icono repositorio' className="icon"/></a>
-                    <a href='' target='_blank' ><img src={iconweb} title='enlace a web' alt='icono web' className="icon"/></a>
+                    <p className="text">
+                      {technologies || 'React JS, MongoDB'}
+                    </p>
+                    <a href="" target="_blank">
+                      <img
+                        src={icongithub}
+                        title="enlace a repositorio"
+                        alt="icono repositorio"
+                        className="icon"
+                      />
+                    </a>
+                    <a href="" target="_blank">
+                      <img
+                        src={iconweb}
+                        title="enlace a web"
+                        alt="icono web"
+                        className="icon"
+                      />
+                    </a>
                   </section>
                 </section>
 
@@ -109,6 +119,7 @@ const handleClickCreateCard = () =>{
                   id="name"
                   onChange={handleInput}
                   value={name}
+                  required
                 />
                 <input
                   className="input"
@@ -127,7 +138,9 @@ const handleClickCreateCard = () =>{
                   placeholder="Repo"
                   onChange={handleInput}
                   value={repo}
+                  required
                 />
+                <span>{mensj}</span>
                 <input
                   className="input"
                   type="text"
@@ -154,6 +167,7 @@ const handleClickCreateCard = () =>{
                   id="desc"
                   onChange={handleInput}
                   value={desc}
+                  required
                 ></textarea>
               </fieldset>
 
