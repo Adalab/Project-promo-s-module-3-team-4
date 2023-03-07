@@ -42,10 +42,12 @@ function App() {
 
   const handleClickCreateCard = (ev) => {
     ev.preventDefault();
-    let regex = new RegExp(/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@$_./]*$/);
+    // let regex = new RegExp(/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@$_./]*$/);
+    let regex = new RegExp(/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/)
     if (regex.test(repo)) {
+      setMensj('');
     } else {
-      setMensj('Escribe bien joder');
+      setMensj('Datos en el formato incorrecto');
     }
   };
 
