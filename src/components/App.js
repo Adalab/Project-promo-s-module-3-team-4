@@ -3,6 +3,8 @@ import cover from '../images/cover.jpeg';
 import user from '../images/user.jpeg';
 import iconweb from '../images/iconoweb.png';
 import icongithub from '../images/iconogithub.png';
+import iconComputer from '../images/iconoComp.png'
+import logo from '../images/logoCool.png';
 import { useState } from 'react';
 
 function App() {
@@ -56,7 +58,11 @@ function App() {
       {
         <div className="container">
           <header className="header">
-            <p className="text">Proyectos Molones</p>
+            <div className='contHeader'>
+            <img className='iconComputer' src={iconComputer} alt='icono' />
+            <p className="text">Cool Project Station</p>
+            </div>
+            <img className='logoCool' src={logo} alt='logo' />
           </header>
           <main className="main">
             <section className="preview">
@@ -67,7 +73,7 @@ function App() {
                   <p className="subtitle">Personal Project Card</p>
                   <hr className="line" />
 
-                  <h2 className="title"> {name || 'Elegant Workspace'}</h2>
+                  <h2 className="title-preview"> {name || 'Elegant Workspace'}</h2>
                   <p className="slogan">{slogan || 'Diseños Exclusivos'}</p>
                   <p className="desc">
                     {desc ||
@@ -77,27 +83,31 @@ function App() {
                     <p className="text">
                       {technologies || 'React JS, MongoDB'}
                     </p>
-                    <a href="" target="_blank">
-                      <img
-                        src={icongithub}
-                        title="enlace a repositorio"
-                        alt="icono repositorio"
-                        className="icon"
-                      />
-                    </a>
-                    <a href="" target="_blank">
-                      <img
-                        src={iconweb}
-                        title="enlace a web"
-                        alt="icono web"
-                        className="icon"
-                      />
-                    </a>
+                    <div className='div_icon'>
+                      <a href="" target="_blank">
+                        <img
+                          src={icongithub}
+                          title="enlace a repositorio"
+                          alt="icono repositorio"
+                          className="icon"
+                        />
+                      </a>
+                      <a href="" target="_blank">
+                        <img
+                          src={iconweb}
+                          title="enlace a web"
+                          alt="icono web"
+                          className="icon"
+                          />
+                      </a>
+                    </div>
                   </section>
                 </section>
 
                 <section className="info-autor">
-                  <img className="image" src={user} alt="user" />
+                  <div className='img'>
+                  {/* <img className="image" src={user} alt="user" /> */}
+                  </div>
                   <p className="job"> {job || 'Full Stack Developer'}</p>
                   <p className="name">{autor || 'Emmelie Björklund'}</p>
                 </section>
@@ -132,26 +142,28 @@ function App() {
                   onChange={handleInput}
                   value={slogan}
                 />
-                <input
-                  className="input"
-                  type="text"
-                  name="repo"
-                  id="repo"
-                  placeholder="Repo"
-                  onChange={handleInput}
-                  value={repo}
-                  required
-                />
-                <span>{mensj}</span>
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Demo"
-                  name="demo"
-                  id="demo"
-                  onChange={handleInput}
-                  value={demo}
-                />
+                <div>
+                  <input
+                    className="input input-mvl"
+                    type="text"
+                    name="repo"
+                    id="repo"
+                    placeholder="Repo"
+                    onChange={handleInput}
+                    value={repo}
+                    required
+                  />
+                  <span>{mensj}</span>
+                  <input
+                    className="input input-mvl"
+                    type="text"
+                    placeholder="Demo"
+                    name="demo"
+                    id="demo"
+                    onChange={handleInput}
+                    value={demo}
+                    />
+                  </div>
                 <input
                   className="input"
                   type="text"

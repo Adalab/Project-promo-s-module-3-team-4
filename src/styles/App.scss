@@ -1,11 +1,12 @@
 /* Aquí van tus estilos */
 
 
-  
-  .container {
-    background-color: $dark;
-    height: 100vh;
-    padding: 20px;
+  @media (min-width: 768px) {
+
+    .container {
+      background-color: $dark;
+      height: 100vh;
+      padding: 20px;
   }
   
   .header {
@@ -71,7 +72,7 @@
   .textarea {
     background-color: $dark;
     border-color: $white;
-    border-radius: 40px;
+    border-radius: 30px;
     height: 42.72px;
     color: $white;
     padding-left: 15px;
@@ -80,6 +81,7 @@
   .main .input::placeholder,
   .textarea::placeholder {
     color: $white;
+    padding-top: 10px;
   }
   
   .main .textarea {
@@ -170,7 +172,7 @@
   .info-project .desc {
     font-size: 12px;
     margin-bottom: 10px;
-  }
+    }
   
   .info-project .slogan {
     font-size: 14px;
@@ -223,3 +225,6 @@
   .icon{
     width: 16px;
   }
+
+
+}
