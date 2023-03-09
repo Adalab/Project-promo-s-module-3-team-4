@@ -8,17 +8,20 @@ import logo from '../images/logoCool.png';
 import { useState } from 'react';
 
 function App() {
-  const [name, setName] = useState('');
-  const [slogan, setSlogan] = useState('');
-  const [repo, setRepo] = useState('');
-  const [demo, setDemo] = useState('');
-  const [technologies, setTechnologies] = useState('');
-  const [desc, setDesc] = useState('');
-  const [autor, setAutor] = useState('');
-  const [job, setJob] = useState('');
   const [mensjR, setMensjR] = useState('');
   const [mensjD, setMensjD] = useState('');
 
+  const [data , setData] = useState({
+    // name:'' ,
+    // slogan: '',
+    // repo: '',
+    // demo: '',
+    // technologies: '',
+    // desc: '', 
+    // autor:'',
+    // job: '',
+
+    });
 
   const handleInput = (ev) => {
     ev.preventDefault();
@@ -26,39 +29,40 @@ function App() {
     const inputName = ev.target.name;
 
     if (inputName === 'name') {
-      setName(inputValue);
-    } else if (inputName === 'slogan') {
-      setSlogan(inputValue);
+      setData({...data,name:inputValue});
+    } 
+    else if (inputName === 'slogan') {
+      setData({...data,slogan:inputValue});
     } else if (inputName === 'repo') {
-      setRepo(inputValue);
+      setData({...data,repo:inputValue});
     } else if (inputName === 'demo') {
-      setDemo(inputValue);
+      setData({...data,demo:inputValue});
     } else if (inputName === 'technologies') {
-      setTechnologies(inputValue);
+      setData({...data,technologies:inputValue});
     } else if (inputName === 'desc') {
-      setDesc(inputValue);
+      setData({...data,desc:inputValue});
     } else if (inputName === 'autor') {
-      setAutor(inputValue);
+      setData({...data,autor:inputValue});
     } else if (inputName === 'job') {
-      setJob(inputValue);
+      setData({...data,job:inputValue});
     }
   };
 
   const handleClickCreateCard = (ev) => {
-    ev.preventDefault();
+    //ev.preventDefault();
     // let regex = new RegExp(/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@$_./]*$/);
     let regex = new RegExp(/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/)
-    if (regex.test(repo)) {
+    if (regex.test(data.repo)) {
       setMensjR('');
     } else {
       setMensjR('Datos en el formato incorrecto');
     }
-    if (regex.test(demo) || demo === '' ) {
+    if (regex.test(data.demo) || data.demo === '' ) {
       setMensjD('');
     } else {
       setMensjD('Datos en el formato incorrecto');
     }
-    if (name === '') {
+    if (data.name === '') {
       
     }
 
@@ -84,15 +88,15 @@ function App() {
                   <p className="subtitle">Personal Project Card</p>
                   <hr className="line" />
 
-                  <h2 className="title-preview"> {name || 'Elegant Workspace'}</h2>
-                  <p className="slogan">{slogan || 'Diseños Exclusivos'}</p>
+                  <h2 className="title-preview"> {data.name || 'Elegant Workspace'}</h2>
+                  <p className="slogan">{data.slogan || 'Diseños Exclusivos'}</p>
                   <p className="desc">
-                    {desc ||
+                    {data.desc ||
                       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!'}{' '}
                   </p>
                   <section className="technologies">
                     <p className="text">
-                      {technologies || 'React JS, MongoDB'}
+                      {data.technologies || 'React JS, MongoDB'}
                     </p>
                     <div className='div_icon'>
                       <a href="" target="_blank">
@@ -119,8 +123,8 @@ function App() {
                   <div className='img'>
                   {/* <img className="image" src={user} alt="user" /> */}
                   </div>
-                  <p className="job"> {job || 'Full Stack Developer'}</p>
-                  <p className="name">{autor || 'Emmelie Björklund'}</p>
+                  <p className="job"> {data.job || 'Full Stack Developer'}</p>
+                  <p className="name">{data.autor || 'Emmelie Björklund'}</p>
                 </section>
               </section>
             </section>
@@ -141,7 +145,7 @@ function App() {
                   name="name"
                   id="name"
                   onChange={handleInput}
-                  value={name}
+                  value={data.name}
                   required
                 />
                 <input
@@ -151,7 +155,7 @@ function App() {
                   id="slogan"
                   placeholder="Slogan"
                   onChange={handleInput}
-                  value={slogan}
+                  value={data.slogan}
                 />
                 <div>
                   <input
@@ -161,7 +165,7 @@ function App() {
                     id="repo"
                     placeholder="Repo"
                     onChange={handleInput}
-                    value={repo}
+                    value={data.repo}
                     required
                   />
                   <span>{mensjR}</span>
@@ -172,7 +176,7 @@ function App() {
                     name="demo"
                     id="demo"
                     onChange={handleInput}
-                    value={demo}                    
+                    value={data.demo}                    
                     />
                     <span>{mensjD}</span>
                   </div>
@@ -183,7 +187,7 @@ function App() {
                   name="technologies"
                   id="technologies"
                   onChange={handleInput}
-                  value={technologies}
+                  value={data.technologies}
                 />
                 <textarea
                   className="textarea"
@@ -192,7 +196,7 @@ function App() {
                   name="desc"
                   id="desc"
                   onChange={handleInput}
-                  value={desc}
+                  value={data.desc}
                   required
                 ></textarea>
               </fieldset>
@@ -210,7 +214,7 @@ function App() {
                   name="autor"
                   id="autor"
                   onChange={handleInput}
-                  value={autor}
+                  value={data.autor}
                 />
                 <input
                   className="input"
@@ -219,7 +223,7 @@ function App() {
                   name="job"
                   id="job"
                   onChange={handleInput}
-                  value={job}
+                  value={data.job}
                 />
               </fieldset>
 
