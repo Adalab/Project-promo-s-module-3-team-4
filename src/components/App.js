@@ -16,7 +16,9 @@ function App() {
   const [desc, setDesc] = useState('');
   const [autor, setAutor] = useState('');
   const [job, setJob] = useState('');
-  const [mensj, setMensj] = useState('');
+  const [mensjR, setMensjR] = useState('');
+  const [mensjD, setMensjD] = useState('');
+
 
   const handleInput = (ev) => {
     ev.preventDefault();
@@ -47,9 +49,14 @@ function App() {
     // let regex = new RegExp(/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@$_./]*$/);
     let regex = new RegExp(/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/)
     if (regex.test(repo)) {
-      setMensj('');
+      setMensjR('');
     } else {
-      setMensj('Datos en el formato incorrecto');
+      setMensjR('Datos en el formato incorrecto');
+    }
+    if (regex.test(demo) || demo === '' ) {
+      setMensjD('');
+    } else {
+      setMensjD('Datos en el formato incorrecto');
     }
   };
 
@@ -153,7 +160,7 @@ function App() {
                     value={repo}
                     required
                   />
-                  <span>{mensj}</span>
+                  <span>{mensjR}</span>
                   <input
                     className="input input-mvl"
                     type="text"
@@ -161,8 +168,9 @@ function App() {
                     name="demo"
                     id="demo"
                     onChange={handleInput}
-                    value={demo}
+                    value={demo}                    
                     />
+                    <span>{mensjD}</span>
                   </div>
                 <input
                   className="input"
