@@ -58,6 +58,10 @@ function App() {
     } else {
       setMensjD('Datos en el formato incorrecto');
     }
+    if (name === '') {
+      
+    }
+
   };
 
   return (
