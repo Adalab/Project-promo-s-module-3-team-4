@@ -6,51 +6,42 @@ import icongithub from '../images/iconogithub.png';
 import iconComputer from '../images/iconoComp.png'
 import logo from '../images/logoCool.png';
 import { useState } from 'react';
+import dataApi from '../service/api';
 
 function App() {
   const [mensjR, setMensjR] = useState('');
   const [mensjD, setMensjD] = useState('');
 
   const [data , setData] = useState({
-    // name:'' ,
-    // slogan: '',
-    // repo: '',
-    // demo: '',
-    // technologies: '',
-    // desc: '', 
-    // autor:'',
-    // job: '',
+    color:'dark',
+    name:'' ,
+    slogan: '',
+    repo: '',
+    demo: '',
+    technologies: '',
+    desc: '', 
+    autor:'',
+    job: '',
+    image: 'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
+    photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
 
     });
+    const [url, setUrl] = useState('');
 
   const handleInput = (ev) => {
     ev.preventDefault();
     const inputValue = ev.target.value;
     const inputName = ev.target.name;
 
-    if (inputName === 'name') {
-      setData({...data,name:inputValue});
-    } 
-    else if (inputName === 'slogan') {
-      setData({...data,slogan:inputValue});
-    } else if (inputName === 'repo') {
-      setData({...data,repo:inputValue});
-    } else if (inputName === 'demo') {
-      setData({...data,demo:inputValue});
-    } else if (inputName === 'technologies') {
-      setData({...data,technologies:inputValue});
-    } else if (inputName === 'desc') {
-      setData({...data,desc:inputValue});
-    } else if (inputName === 'autor') {
-      setData({...data,autor:inputValue});
-    } else if (inputName === 'job') {
-      setData({...data,job:inputValue});
-    }
+    setData({...data, [inputName]:inputValue});
   };
 
   const handleClickCreateCard = (ev) => {
     //ev.preventDefault();
-    // let regex = new RegExp(/^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@$_./]*$/);
+    dataApi(data)
+      .then(info=>{
+        setUrl(info.cardURL)
+      })
     let regex = new RegExp(/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/)
     if (regex.test(data.repo)) {
       setMensjR('');
@@ -121,7 +112,7 @@ function App() {
 
                 <section className="info-autor">
                   <div className='img'>
-                  {/* <img className="image" src={user} alt="user" /> */}
+                   <img className="image" src={data.image} alt="user" /> 
                   </div>
                   <p className="job"> {data.job || 'Full Stack Developer'}</p>
                   <p className="name">{data.autor || 'Emmelie Björklund'}</p>
