@@ -10,7 +10,9 @@ import dataApi from '../service/api';
 
 function App() {
   const [mensjR, setMensjR] = useState('');
-  const [mensjD, setMensjD] = useState('');
+  const [mensjN, setMensjN] = useState('');
+  const [url, setUrl] = useState('');
+  const [hidden, setHidden] = useState(true);
 
   const [data , setData] = useState({
     color:'dark',
@@ -26,7 +28,7 @@ function App() {
     photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
 
     });
-    const [url, setUrl] = useState('');
+    
 
   const handleInput = (ev) => {
     ev.preventDefault();
@@ -37,24 +39,23 @@ function App() {
   };
 
   const handleClickCreateCard = (ev) => {
-    //ev.preventDefault();
+    ev.preventDefault();
     dataApi(data)
       .then(info=>{
         setUrl(info.cardURL)
       })
     let regex = new RegExp(/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/)
-    if (regex.test(data.repo)) {
+    if (data.name === '') {
+      setMensjN('Te falta el nombre');
+    }else if (regex.test(data.repo)) {
       setMensjR('');
     } else {
-      setMensjR('Datos en el formato incorrecto');
+      setMensjR('Datos incorrectos');
     }
-    if (regex.test(data.demo) || data.demo === '' ) {
-      setMensjD('');
-    } else {
-      setMensjD('Datos en el formato incorrecto');
-    }
-    if (data.name === '') {
-      
+
+    
+    if(data.name!=='' && data.repo!==''){
+      setHidden(false);
     }
 
   };
@@ -139,6 +140,7 @@ function App() {
                   value={data.name}
                   required
                 />
+                <span className='mensj'>{mensjN}</span>
                 <input
                   className="input"
                   type="text"
@@ -158,8 +160,8 @@ function App() {
                     onChange={handleInput}
                     value={data.repo}
                     required
-                  />
-                  <span>{mensjR}</span>
+                  /> 
+                              
                   <input
                     className="input input-mvl"
                     type="text"
@@ -168,8 +170,8 @@ function App() {
                     id="demo"
                     onChange={handleInput}
                     value={data.demo}                    
-                    />
-                    <span>{mensjD}</span>
+                  />
+                  <span className='mensj'>{mensjR}</span>
                   </div>
                 <input
                   className="input"
@@ -229,7 +231,7 @@ function App() {
               </section>
 
               <section className="card">
-                <span className=""> La tarjeta ha sido creada: </span>
+                <span className={hidden ? 'hidden' : ''}> La tarjeta ha sido creada: </span>
                 <a href="" className="" target="_blank" rel="noreferrer"></a>
               </section>
             </form>

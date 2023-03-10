@@ -96,7 +96,7 @@
   .main .autor {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     border: none;
   }
   
@@ -110,7 +110,6 @@
     padding-left: 15px;
     padding-top: 5px;
     font-size: 1rem;
-
   }
   .main .input::placeholder,
   .textarea::placeholder {
@@ -181,6 +180,10 @@
   .info-autor {
     width: 40%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      
   }
   
    .info-autor .image {
@@ -189,6 +192,7 @@
      border-radius: 50%;
      border: .2rem solid #3e3e3e;
     }
+
 .img {
         display: flex;
         align-items: center;
@@ -202,11 +206,13 @@
   .info-autor .job {
     font-weight: bold;
     color: $black-80;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding-top: 1rem;
   }
   
   .info-autor .name {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    padding-top: 1rem;
   }
   
   .info-project {
@@ -265,7 +271,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background-color: lightgray;
         border-radius: 20px;
         font-size: 1rem;
         padding: 1rem;
@@ -292,5 +297,12 @@
     width: 1.6rem;
   }
 
+}
+
+.mensj{
+  color: greenyellow;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 }
 
