@@ -121,7 +121,7 @@ function App() {
               </section>
             </section>
 
-            <form className="form">
+            <form className="form form2">
               <h2 className="title">Información</h2>
 
               <section className="ask-info">
@@ -171,8 +171,8 @@ function App() {
                     onChange={handleInput}
                     value={data.demo}                    
                   />
-                  <span className='mensj'>{mensjR}</span>
                   </div>
+                  <span className='mensj'>{mensjR}</span>
                 <input
                   className="input"
                   type="text"
