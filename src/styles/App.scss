@@ -1,12 +1,12 @@
 /* Aquí van tus estilos */
 
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
 
     .container {
       background-color: $dark;
-      height: 100vh;
-      padding: 20px;
+      width: 100vw; 
+      padding: 2rem;
   }
   
   .header {
@@ -17,6 +17,9 @@
   
   .header .text {
     color: $white;
+  }
+  .logoCool {
+    width: 5rem;
   }
   
   .main {
@@ -49,6 +52,9 @@
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0)
     );
+  }
+  .input-mvl {
+    width: 50%;
   }
   
   .main .preview {

@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (min-width: 400px) {
   
 .container {
     background-color: $dark;
@@ -90,6 +90,7 @@
     //margin-top: 7rem;
     padding: 2rem 1.5rem 3rem;
     margin: auto;
+    background-image: radial-gradient(circle, rgba(64,58,95,1) 0%, rgba(33,30,46,1) 100%);
   }
   
   .main .project,
