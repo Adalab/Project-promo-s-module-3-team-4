@@ -26,7 +26,6 @@ function App() {
     job: '',
     image: 'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
     photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
-
     });
     
 
