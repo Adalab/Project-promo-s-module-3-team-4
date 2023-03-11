@@ -15,7 +15,7 @@ function App() {
   const [hidden, setHidden] = useState(true);
 
   const [data , setData] = useState({
-    color:'dark',
+    // color:'dark',
     name:'' ,
     slogan: '',
     repo: '',
@@ -231,7 +231,7 @@ function App() {
 
               <section className="card">
                 <span className={hidden ? 'hidden' : ''}> La tarjeta ha sido creada: </span>
-                <a href="" className="" target="_blank" rel="noreferrer"></a>
+                <a href="" className="" target="_blank" rel="noreferrer">{url}</a>
               </section>
             </form>
           </main>
