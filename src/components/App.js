@@ -1,12 +1,14 @@
 import '../styles/main.scss';
 import cover from '../images/cover.jpeg';
+import trash from '../images/icons8-basura-100.png';
 import user from '../images/user.jpeg';
 import iconweb from '../images/iconoweb.png';
 import icongithub from '../images/iconogithub.png';
-import iconComputer from '../images/iconoComp.png'
+import iconComputer from '../images/iconoComp.png';
 import logo from '../images/logoCool.png';
 import { useState } from 'react';
 import dataApi from '../service/api';
+import objectToExport from '../service/localstorege';
 
 function App() {
   const [mensjR, setMensjR] = useState('');
@@ -14,49 +16,70 @@ function App() {
   const [url, setUrl] = useState('');
   const [hidden, setHidden] = useState(true);
 
-  const [data , setData] = useState({
-    // color:'dark',
-    name:'' ,
-    slogan: '',
-    repo: '',
-    demo: '',
-    technologies: '',
-    desc: '', 
-    autor:'',
-    job: '',
-    image: 'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
-    photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
-    });
-    
+  const [data, setData] = useState(
+    objectToExport.get('dataLs', {
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
+      image:
+        'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
+      photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
+    })
+  );
 
   const handleInput = (ev) => {
+    objectToExport.set('dataLs', data);
     ev.preventDefault();
     const inputValue = ev.target.value;
     const inputName = ev.target.name;
 
-    setData({...data, [inputName]:inputValue});
+    setData({ ...data, [inputName]: inputValue });
+  };
+
+  const handletrash = (ev) => {
+    setData({
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
+      image:
+        'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
+      photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
+    });
+    setHidden(true);
+    setUrl('');
+
+    objectToExport.clear('dataLs', data);
   };
 
   const handleClickCreateCard = (ev) => {
     ev.preventDefault();
-    dataApi(data)
-      .then(info=>{
-        setUrl(info.cardURL)
-      })
-    let regex = new RegExp(/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/)
+    dataApi(data).then((info) => {
+      setUrl(info.cardURL);
+    });
+    let regex = new RegExp(
+      /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
+    );
     if (data.name === '') {
       setMensjN('Te falta el nombre');
-    }else if (regex.test(data.repo)) {
+    } else if (regex.test(data.repo)) {
       setMensjR('');
     } else {
       setMensjR('Datos incorrectos');
     }
 
-    
-    if(data.name!=='' && data.repo!==''){
+    if (data.name !== '' && data.repo !== '') {
       setHidden(false);
     }
-
   };
 
   return (
@@ -64,11 +87,11 @@ function App() {
       {
         <div className="container">
           <header className="header">
-            <div className='contHeader'>
-            <img className='iconComputer' src={iconComputer} alt='icono' />
-            <p className="text">Cool Project Station</p>
+            <div className="contHeader">
+              <img className="iconComputer" src={iconComputer} alt="icono" />
+              <p className="text">Cool Project Station</p>
             </div>
-            <img className='logoCool' src={logo} alt='logo' />
+            <img className="logoCool" src={logo} alt="logo" />
           </header>
           <main className="main">
             <section className="preview">
@@ -79,8 +102,13 @@ function App() {
                   <p className="subtitle">Personal Project Card</p>
                   <hr className="line" />
 
-                  <h2 className="title-preview"> {data.name || 'Elegant Workspace'}</h2>
-                  <p className="slogan">{data.slogan || 'Diseños Exclusivos'}</p>
+                  <h2 className="title-preview">
+                    {' '}
+                    {data.name || 'Elegant Workspace'}
+                  </h2>
+                  <p className="slogan">
+                    {data.slogan || 'Diseños Exclusivos'}
+                  </p>
                   <p className="desc">
                     {data.desc ||
                       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!'}{' '}
@@ -89,7 +117,7 @@ function App() {
                     <p className="text">
                       {data.technologies || 'React JS, MongoDB'}
                     </p>
-                    <div className='div_icon'>
+                    <div className="div_icon">
                       <a href="" target="_blank">
                         <img
                           src={icongithub}
@@ -104,15 +132,15 @@ function App() {
                           title="enlace a web"
                           alt="icono web"
                           className="icon"
-                          />
+                        />
                       </a>
                     </div>
                   </section>
                 </section>
 
                 <section className="info-autor">
-                  <div className='img'>
-                   <img className="image" src={data.image} alt="user" /> 
+                  <div className="img">
+                    <img className="image" src={data.image} alt="user" />
                   </div>
                   <p className="job"> {data.job || 'Full Stack Developer'}</p>
                   <p className="name">{data.autor || 'Emmelie Björklund'}</p>
@@ -139,7 +167,7 @@ function App() {
                   value={data.name}
                   required
                 />
-                <span className='mensj'>{mensjN}</span>
+                <span className="mensj">{mensjN}</span>
                 <input
                   className="input"
                   type="text"
@@ -159,8 +187,8 @@ function App() {
                     onChange={handleInput}
                     value={data.repo}
                     required
-                  /> 
-                              
+                  />
+
                   <input
                     className="input input-mvl"
                     type="text"
@@ -168,10 +196,10 @@ function App() {
                     name="demo"
                     id="demo"
                     onChange={handleInput}
-                    value={data.demo}                    
+                    value={data.demo}
                   />
-                  </div>
-                  <span className='mensj'>{mensjR}</span>
+                </div>
+                <span className="mensj">{mensjR}</span>
                 <input
                   className="input"
                   type="text"
@@ -230,8 +258,24 @@ function App() {
               </section>
 
               <section className="card">
-                <span className={hidden ? 'hidden' : ''}> La tarjeta ha sido creada: </span>
-                <a href="" className="" target="_blank" rel="noreferrer">{url}</a>
+                <span className={hidden ? 'hidden' : ''}>
+                  {' '}
+                  La tarjeta ha sido creada:{' '}
+                </span>
+                <a
+                  href={url}
+                  className="url_create"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {url}
+                </a>
+                <img
+                  src={trash}
+                  alt="trash"
+                  onClick={handletrash}
+                  className="trash"
+                />
               </section>
             </form>
           </main>
