@@ -1,14 +1,13 @@
 import '../styles/main.scss';
-import cover from '../images/cover.jpeg';
 import trash from '../images/icons8-basura-100.png';
-import user from '../images/user.jpeg';
-import iconweb from '../images/iconoweb.png';
-import icongithub from '../images/iconogithub.png';
-import iconComputer from '../images/iconoComp.png';
-import logo from '../images/logoCool.png';
+
+
 import { useState } from 'react';
 import dataApi from '../service/api';
 import objectToExport from '../service/localstorege';
+import Header from './header/Header';
+import ImgProject from './main/preview/ImgProject';
+import Card from './main/preview/Card';
 
 function App() {
   const [mensjR, setMensjR] = useState('');
@@ -86,66 +85,12 @@ function App() {
     <div className="App">
       {
         <div className="container">
-          <header className="header">
-            <div className="contHeader">
-              <img className="iconComputer" src={iconComputer} alt="icono" />
-              <p className="text">Cool Project Station</p>
-            </div>
-            <img className="logoCool" src={logo} alt="logo" />
-          </header>
+          <Header />
           <main className="main">
             <section className="preview">
-              <img className="image" src={cover} alt="cover" />
-
-              <section className="autor">
-                <section className="info-project">
-                  <p className="subtitle">Personal Project Card</p>
-                  <hr className="line" />
-
-                  <h2 className="title-preview">
-                    {' '}
-                    {data.name || 'Elegant Workspace'}
-                  </h2>
-                  <p className="slogan">
-                    {data.slogan || 'Diseños Exclusivos'}
-                  </p>
-                  <p className="desc">
-                    {data.desc ||
-                      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!'}{' '}
-                  </p>
-                  <section className="technologies">
-                    <p className="text">
-                      {data.technologies || 'React JS, MongoDB'}
-                    </p>
-                    <div className="div_icon">
-                      <a href="" target="_blank">
-                        <img
-                          src={icongithub}
-                          title="enlace a repositorio"
-                          alt="icono repositorio"
-                          className="icon"
-                        />
-                      </a>
-                      <a href="" target="_blank">
-                        <img
-                          src={iconweb}
-                          title="enlace a web"
-                          alt="icono web"
-                          className="icon"
-                        />
-                      </a>
-                    </div>
-                  </section>
-                </section>
-
-                <section className="info-autor">
-                  <div className="img">
-                    <img className="image" src={data.image} alt="user" />
-                  </div>
-                  <p className="job"> {data.job || 'Full Stack Developer'}</p>
-                  <p className="name">{data.autor || 'Emmelie Björklund'}</p>
-                </section>
-              </section>
+              
+              <ImgProject />
+              <Card />
             </section>
 
             <form className="form form2">
