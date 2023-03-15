@@ -217,7 +217,7 @@ function App() {
                 <Buttons className={"btn-large"} 
                 value={"Crear tarjeta"}
                 handleClick={handleClickCreateCard}
-                disabled={isValidFor()}
+                // disabled={isValidFor()}
                 />
               </section>
 
