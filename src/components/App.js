@@ -8,6 +8,7 @@ import objectToExport from '../service/localstorege';
 import Header from './header/Header';
 import ImgProject from './main/preview/ImgProject';
 import Card from './main/preview/Card';
+import Buttons from './main/form/Buttons';
 
 function App() {
   const [mensjR, setMensjR] = useState('');
@@ -80,6 +81,21 @@ function App() {
       setHidden(false);
     }
   };
+
+  // const isValidForm = () => {
+    // El formulario solo es válido cuando los inputs de tipo texto no estén vacíos, cuando se haya marcado un tipo de pago y cuando los términos legales sean true
+    // También podríamos comprobar que el email tiene el formato correcto, pero no queremos complicar este ejemplo
+  //   if (
+  //     name !== '' &&
+  //     email !== '' &&
+  //     paymentType !== '' &&
+  //     legalTerms === true
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
 
   return (
     <div className="App">
@@ -193,13 +209,16 @@ function App() {
               </fieldset>
 
               <section className="buttons-img">
-                <button className="btn">Subir foto de proyecto</button>
-                <button className="btn">Subir foto de autora</button>
+                <Buttons value={"Subir foto de proyecto"} className={"btn"}/>
+                <Buttons className={"btn"} value={"Subir foto de autora"}
+                />
               </section>
               <section className="buttons-img">
-                <button className="btn-large" onClick={handleClickCreateCard}>
-                  Crear Tarjeta
-                </button>
+                <Buttons className={"btn-large"} 
+                value={"Crear tarjeta"}
+                handleClick={handleClickCreateCard}
+                disabled={isValidFor()}
+                />
               </section>
 
               <section className="card">
