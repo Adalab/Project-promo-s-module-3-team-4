@@ -90,7 +90,7 @@ function App() {
             <section className="preview">
               
               <ImgProject />
-              <Card />
+              <Card data={data}/>
             </section>
 
             <form className="form form2">

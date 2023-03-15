@@ -2,7 +2,7 @@ import iconweb from '../../../images/iconoweb.png';
 import icongithub from '../../../images/iconogithub.png';
 
 
-function Card () {
+function Card (props) {
     return (
         <section className="autor">
                 <section className="info-project">
@@ -11,18 +11,18 @@ function Card () {
 
                   <h2 className="title-preview">
                     {' '}
-                    {data.name || 'Elegant Workspace'}
+                    {props.data.name || 'Elegant Workspace'}
                   </h2>
                   <p className="slogan">
-                    {data.slogan || 'Diseños Exclusivos'}
+                    {props.data.slogan || 'Diseños Exclusivos'}
                   </p>
                   <p className="desc">
-                    {data.desc ||
+                    {props.data.desc ||
                       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!'}{' '}
                   </p>
                   <section className="technologies">
                     <p className="text">
-                      {data.technologies || 'React JS, MongoDB'}
+                      {props.data.technologies || 'React JS, MongoDB'}
                     </p>
                     <div className="div_icon">
                       <a href="" target="_blank">
@@ -47,10 +47,10 @@ function Card () {
 
                 <section className="info-autor">
                   <div className="img">
-                    <img className="image" src={data.image} alt="user" />
+                    <img className="image" src={props.data.image} alt="user" />
                   </div>
-                  <p className="job"> {data.job || 'Full Stack Developer'}</p>
-                  <p className="name">{data.autor || 'Emmelie Björklund'}</p>
+                  <p className="job"> {props.data.job || 'Full Stack Developer'}</p>
+                  <p className="name">{props.data.autor || 'Emmelie Björklund'}</p>
                 </section>
               </section>
     );
