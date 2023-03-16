@@ -1,29 +1,20 @@
 /* SECCIÓN DE IMPORT */
+import '../styles/landing.scss';
 import logo from '../images/logoCool.png';
-import iconComputer from '../images/iconComp.png';
-import iconweb from '../images/iconweb.png';
-import icongithub from '../images/icongithub.png';
+import iconComputer from '../images/iconoComp.png';
+import iconweb from '../images/iconoweb.png';
+import icongithub from '../images/iconogithub.png';
 import user from '../images/user.jpeg';
+import {Link} from 'react-router-dom';
 
-// - De React
-// - Nuestros
-// - Sass
-import '../styles/App.scss';
-// - Imágenes
+
+
 
 /* SECCIÓN DEL COMPONENTE */
 function Landing() {
-  /* VARIABLES ESTADO (DATOS) */
-
-  /* EFECTOS (día 5) */
-
-  /* FUNCIONES HANDLER */
-
-  /* FUNCIONES Y VARIABLES AUXILIARES PARA PINTAR EL HTML */
-
-  /* HTML */
+  
   return <div className="App">
-{/* 
+
 <header className="header">
     <div className="contHeader">
         <section className="contHeader__oneSection">
@@ -40,8 +31,8 @@ function Landing() {
         <h1 className="header__title">Cool Projects Station</h1>
         <h2 className="header__subtitle">Escaparate en línea para recoger ideas a traves de la tecnología.</h2>
         <form className="header__form">
-        <button className='btn'>NUEVO PROYECTO</button>
-        <button className='btn'>VER PROYECTOS</button>
+        <button className='btn'><Link to='/CreateProject'>NUEVO PROYECTO</Link></button>
+        <button className='btn'><Link to='/'>VER PROYECTOS</Link></button>
         </form>
     </div>
 </header>
@@ -59,7 +50,7 @@ function Landing() {
             <section className="technologies">
             <p className="text">React JS, MongoDB</p>
             <div className="div_icon">
-                <a className="icon" href="" target="_blank">
+                <a className="icon" href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
@@ -67,7 +58,7 @@ function Landing() {
                     className="icon"
                 />
                 </a>
-                <a className="icon" href="" target="_blank">
+                <a className="icon" href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
@@ -102,7 +93,7 @@ function Landing() {
             <section className="technologies">
             <p className="text">React JS, MongoDB</p>
             <div className="div_icon">
-                <a href="" target="_blank">
+                <a href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
@@ -110,7 +101,7 @@ function Landing() {
                     className="icon"
                 />
                 </a>
-                <a href="" target="_blank">
+                <a href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
@@ -143,7 +134,7 @@ function Landing() {
             <section className="technologies">
             <p className="text">React JS, MongoDB</p>
             <div className="div_icon">
-                <a href="" target="_blank">
+                <a href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
@@ -151,7 +142,7 @@ function Landing() {
                     className="icon"
                 />
                 </a>
-                <a href="" target="_blank">
+                <a href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
@@ -184,7 +175,7 @@ function Landing() {
             <section className="technologies">
             <p className="text">React JS, MongoDB</p>
             <div className="div_icon">
-                <a href="" target="_blank">
+                <a href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
@@ -192,7 +183,7 @@ function Landing() {
                     className="icon"
                 />
                 </a>
-                <a href="" target="_blank">
+                <a href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
@@ -216,7 +207,7 @@ function Landing() {
 <footer className='footer'>
 <img className='iconComputer' src={iconComputer} alt='icono'/>
 <span>&copy Module-3: Project Team 4</span>
-</footer> */}
+</footer>
 
  </div>;
 }
