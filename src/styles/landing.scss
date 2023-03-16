@@ -1,144 +1,217 @@
-.header {
+@import '../styles/variables.scss';
+@import '../styles/reset.scss';
+
+.land-header {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #302c42;
-    color: white;
+    background-color: $dark;
+    color: $white;
 }
-.contHeader{
+.land-contHeader{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 2rem;
 }
-.contHeader__oneSection{
+.land-contHeader__oneSection{
 display: flex;
 flex-direction: row;
 justify-content: flex-start;
+align-items: center;
 gap: 1rem;
 }
-.header__title{
+.land-iconComputer{
+    width: 3rem;
+    height: 3rem;
+}
+.land-text{
+    font-size: 1.4rem;
+    font: $font-style;
+}
+.land-logoCool{
+    width: 4rem;
+    height: 4rem;
+}
+
+
+.land-header__title{
+    font: $font-style-2;
     font-size: 4rem;
+    font-weight: bolder;
     text-align: center;
     padding-bottom: 1rem;
 }
-.header__subtitle{
+.land-header__subtitle{
+    font: $font-style;
     font-size: 1.8rem;
     text-align: center;
     padding-bottom: 1.5rem;
 }
-.header__form {
+.land-header__form {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
 }
-.btn{
+.land-btnNew{
     display: block;
     font-weight: bold;
     border-radius: 20px;
     padding: .5rem;
 }
-
-
-
-
-.main {
-    padding: 2rem;
-    background-color: #302c42;
+.btnNewTxt{
+    text-decoration: none;
+    font-size: 1rem;
 }
-.autor{
-    background-color: white;
+.land-btnSee{
+    display: block;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: .5rem;
+    background-color:$dark-lilac;
+}
+.btnSeeTxt{
+    text-decoration: none;
+    color:$white;
+    font-size: 1rem;
+}
+
+
+
+.land-main {
+    padding: 2rem;
+    background-color: $dark;
+}
+.land-autor{
+    background-color: $white;
     margin-bottom: 1rem;
     border-radius: 20px;
-    height: 300px;
+    height: 350px;
     padding: .8rem;
     display: flex;
     flex-direction: row-reverse;
     gap: 1rem;
 }
 
-.info-project{
+.land-info-project{
 width: 60%;
 
 }
-.subtitle{
+.land-subtitle{
+    font: $font-style;
+    color: $dark;
     font-size: 0.8rem;
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 0.5rem;
 }
-.title-preview{
+
+.land-title-preview{
+    font: $font-style;
     font-size: 1.4rem;
     font-weight: bold;
+    margin-bottom: 0.5rem;
 }
-.slogan{
+.land-slogan{
+    font: $font-style;
+    color: $greyish-brown;
+    font-weight: 700;
     font-size: 1.2rem;
     padding-bottom: 1rem;
 }
-.desc{
+.land-desc{
+    font: $font-style;
+    color: $greyish-brown-88;
     font-size: 0.8rem;
 }
-.technologies{
+.land-technologies{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     gap: 1rem;
     margin-top: 1rem;
 }
-.text{
+.land-textTec{
+    font: $font-style-2;
     font-size: 1rem;
+    color: $greyish-brown;
 }
-.icon{
-    display: inline-block;
+
+.land-iconWB{
+    width: 25px;
+    height: 25px;
 }
 
 
-.info-autor{
-    width: 35%;
+.land-info-autor{
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
     align-items: center;
 }
 
-.img {
-    width: 75px;
-    height: 75px;
+.land-img {
+    width: 80px;
+    height: 80px;
     margin-bottom: 1rem;
+    border-radius: 40%;
+    border: 3px solid black;
 }
-.job{
+.land-image {
+    border-radius: 45%;
+    padding: 0.4rem 0 0 0.4rem;
+    width: 90%;
+    height: 90%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.land-job{
+    font: $font-style-2;
     font-size: 1rem;
     text-align: center;
+    color: $warm-grey;
 }
-.name{
+.land-name{
+    font: $font-style-2;
    font-size: 1.4rem;
-   font-weight: bold; 
    text-align: center;
+   font-weight: bold;
+   color: $black-80;
 }
 
-.footer{
-    background-color: #302c42;
+.land-footer{
+    background-color: $dark;
     padding: 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: white;
+}
+.land-copy{
+    font: $font-style-2;
+    font-size: 1rem;
+    color: $warm-grey;
 }
 
 
 @media (min-width: 769px) {
-    .header{
-        padding: 3rem;
+    .land-header{
+        height: 30%;
+        padding: 2rem;
     }
-       .main{
-        padding: 3rem;
+       .land-main{
+        height: 60%;
+        padding: 2rem;
         display: grid;
         grid-template-columns: 1fr, 1fr;
         column-gap: 2rem;
         justify-content: space-evenly;
     }
-    .autor{
+    .land-autor{
         width: 500px;
         height: 400px;
     }
@@ -156,7 +229,8 @@ width: 60%;
     }
 
 
-    .footer{
-        padding: 3rem;
+    .land-footer{
+        height: 10%;
+        padding: 2rem;
     }
 }

@@ -6,207 +6,207 @@ import iconweb from '../images/iconoweb.png';
 import icongithub from '../images/iconogithub.png';
 import user from '../images/user.jpeg';
 import {Link} from 'react-router-dom';
-
-
+import '../styles/App.scss';
+import '../styles/variables.scss';
 
 
 /* SECCIÓN DEL COMPONENTE */
 function Landing() {
   
-  return <div className="App">
+  return <div className="Landing">
 
-<header className="header">
-    <div className="contHeader">
-        <section className="contHeader__oneSection">
+<header className="land-header">
+    <div className="land-contHeader">
+        <section className="land-contHeader__oneSection">
         <img
-        className='iconComputer'
+        className='land-iconComputer'
         src={iconComputer}
         alt='icono'
         />
-        <p className="text">Cool Project Station</p>
+        <p className="land-text">Cool Project Station</p>
         </section>
-        <img className="logoCool" src={logo} alt="logo" />
+        <img className="land-logoCool" src={logo} alt="logo" />
     </div>
-    <div className="header__text">
-        <h1 className="header__title">Cool Projects Station</h1>
-        <h2 className="header__subtitle">Escaparate en línea para recoger ideas a traves de la tecnología.</h2>
-        <form className="header__form">
-        <button className='btn'><Link to='/CreateProject'>NUEVO PROYECTO</Link></button>
-        <button className='btn'><Link to='/'>VER PROYECTOS</Link></button>
+    <div className="land-header__text">
+        <h1 className="land-header__title">Cool Projects Station</h1>
+        <h2 className="land-header__subtitle">Escaparate en línea para recoger ideas a traves de la tecnología.</h2>
+        <form className="land-header__form">
+        <button className='land-btnNew'><Link className='btnNewTxt' to='/CreateProject'>NUEVO PROYECTO</Link></button>
+        <button className='land-btnSee'><Link className='btnSeeTxt' to='/'>VER PROYECTOS</Link></button>
         </form>
     </div>
 </header>
-<main className='main'>
-    <section className="autor autOne">
-        <section className="info-project">
-            <p className="subtitle">Personal Project Card</p>
-            <hr className="line" />
+<main className='land-main'>
+    <section className="land-autor autOne">
+        <section className="land-info-project">
+            <p className="land-subtitle">Personal Project Card</p>
+            <hr className="land-line" />
 
-            <h2 className="title-preview">Elegant Workspace</h2>
-            <p className="slogan">Diseños Exclusivos</p>
-            <p className="desc">
+            <h2 className="land-title-preview">Elegant Workspace</h2>
+            <p className="land-slogan">Diseños Exclusivos</p>
+            <p className="land-desc">
                 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!
             </p>
-            <section className="technologies">
-            <p className="text">React JS, MongoDB</p>
-            <div className="div_icon">
-                <a className="icon" href="./" target="_blank">
+            <section className="land-technologies">
+            <p className="land-textTec">React JS - HTML - CSS</p>
+            <div className="land-div_icon">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
                     alt="icono repositorio"
-                    className="icon"
+                    className="land-iconGH"
                 />
                 </a>
-                <a className="icon" href="./" target="_blank">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
                     alt="icono web"
-                    className="icon"
+                    className="land-iconWB"
                 />
                 </a>
             </div>
             </section>
         </section>
 
-        <section className="info-autor">
-            <div className="img">
-            <img className="image" src={user} alt="user" />
+        <section className="land-info-autor">
+            <div className="land-img">
+            <img className="land-image" src={user} alt="user" />
             </div>
-            <p className="job">Full Stack Developer</p>
-            <p className="name">Emmelie Björklund</p>
+            <p className="land-job">Full Stack Developer</p>
+            <p className="land-name">Emmelie Björklund</p>
         </section>
     </section>
+    <section className="land-autor autTwo">
+        <section className="land-info-project">
+            <p className="land-subtitle">Personal Project Card</p>
+            <hr className="land-line" />
 
-
-    <section className="autor autTwo">
-        <section className="info-project">
-            <p className="subtitle">Personal Project Card</p>
-            <hr className="line" />
-
-            <h2 className="title-preview">Elegant Workspace</h2>
-            <p className="slogan">Diseños Exclusivos</p>
-            <p className="desc">
+            <h2 className="land-title-preview">Elegant Workspace</h2>
+            <p className="land-slogan">Diseños Exclusivos</p>
+            <p className="land-desc">
                 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!
             </p>
-            <section className="technologies">
-            <p className="text">React JS, MongoDB</p>
-            <div className="div_icon">
-                <a href="./" target="_blank">
+            <section className="land-technologies">
+            <p className="land-textTec">React JS - HTML - CSS</p>
+            <div className="land-div_icon">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
                     alt="icono repositorio"
-                    className="icon"
+                    className="land-iconGH"
                 />
                 </a>
-                <a href="./" target="_blank">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
                     alt="icono web"
-                    className="icon"
+                    className="land-iconWB"
                 />
                 </a>
             </div>
             </section>
         </section>
 
-        <section className="info-autor">
-            <div className="img">
-            <img className="image" src={user} alt="user" />
+        <section className="land-info-autor">
+            <div className="land-img">
+            <img className="land-image" src={user} alt="user" />
             </div>
-            <p className="job">Full Stack Developer</p>
-            <p className="name">Emmelie Björklund</p>
+            <p className="land-job">Full Stack Developer</p>
+            <p className="land-name">Emmelie Björklund</p>
         </section>
     </section>
-    <section className="autor autThree">
-        <section className="info-project">
-            <p className="subtitle">Personal Project Card</p>
-            <hr className="line" />
+    <section className="land-autor autThree">
+        <section className="land-info-project">
+            <p className="land-subtitle">Personal Project Card</p>
+            <hr className="land-line" />
 
-            <h2 className="title-preview">Elegant Workspace</h2>
-            <p className="slogan">Diseños Exclusivos</p>
-            <p className="desc">
+            <h2 className="land-title-preview">Elegant Workspace</h2>
+            <p className="land-slogan">Diseños Exclusivos</p>
+            <p className="land-desc">
                 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!
             </p>
-            <section className="technologies">
-            <p className="text">React JS, MongoDB</p>
-            <div className="div_icon">
-                <a href="./" target="_blank">
+            <section className="land-technologies">
+            <p className="land-textTec">React JS - HTML - CSS</p>
+            <div className="land-div_icon">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
                     alt="icono repositorio"
-                    className="icon"
+                    className="land-iconGH"
                 />
                 </a>
-                <a href="./" target="_blank">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
                     alt="icono web"
-                    className="icon"
+                    className="land-iconWB"
                 />
                 </a>
             </div>
             </section>
         </section>
 
-        <section className="info-autor">
-            <div className="img">
-            <img className="image" src={user} alt="user" />
+        <section className="land-info-autor">
+            <div className="land-img">
+            <img className="land-image" src={user} alt="user" />
             </div>
-            <p className="job">Full Stack Developer</p>
-            <p className="name">Emmelie Björklund</p>
+            <p className="land-job">Full Stack Developer</p>
+            <p className="land-name">Emmelie Björklund</p>
         </section>
     </section>
-    <section className="autor autFour">
-        <section className="info-project">
-            <p className="subtitle">Personal Project Card</p>
-            <hr className="line" />
+    <section className="land-autor autFour">
+        <section className="land-info-project">
+            <p className="land-subtitle">Personal Project Card</p>
+            <hr className="land-line" />
 
-            <h2 className="title-preview">Elegant Workspace</h2>
-            <p className="slogan">Diseños Exclusivos</p>
-            <p className="desc">
+            <h2 className="land-title-preview">Elegant Workspace</h2>
+            <p className="land-slogan">Diseños Exclusivos</p>
+            <p className="land-desc">
                 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, delectus? Voluptates at hic aliquam porro ad suscipit harum laboriosam saepe earum doloribus aperiam,ullam culpa accusantium placeat odit corrupti ipsum!
             </p>
-            <section className="technologies">
-            <p className="text">React JS, MongoDB</p>
-            <div className="div_icon">
-                <a href="./" target="_blank">
+            <section className="land-technologies">
+            <p className="land-textTec">React JS - HTML - CSS</p>
+            <div className="land-div_icon">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={icongithub}
                     title="enlace a repositorio"
                     alt="icono repositorio"
-                    className="icon"
+                    className="land-iconGH"
                 />
                 </a>
-                <a href="./" target="_blank">
+                <a className="land-icon" href="./" target="_blank">
                 <img
                     src={iconweb}
                     title="enlace a web"
                     alt="icono web"
-                    className="icon"
+                    className="land-iconWB"
                 />
                 </a>
             </div>
             </section>
         </section>
 
-        <section className="info-autor">
-            <div className="img">
-            <img className="image" src={user} alt="user" />
+        <section className="land-info-autor">
+            <div className="land-img">
+            <img className="land-image" src={user} alt="user" />
             </div>
-            <p className="job">Full Stack Developer</p>
-            <p className="name">Emmelie Björklund</p>
+            <p className="land-job">Full Stack Developer</p>
+            <p className="land-name">Emmelie Björklund</p>
         </section>
     </section>
+
+   
 </main>
-<footer className='footer'>
-<img className='iconComputer' src={iconComputer} alt='icono'/>
-<span>&copy Module-3: Project Team 4</span>
+<footer className='land-footer'>
+<img className='land-logoCool' src={logo} alt='icono'/>
+<span className='land-copy'>&copy Module-3: Project Team 4</span>
 </footer>
 
  </div>;
