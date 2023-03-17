@@ -8,11 +8,11 @@ import Card from './main/preview/Card';
 import Buttons from './main/form/Buttons';
 import InputProject from './main/form/InputProject';
 import InputAuthor from './main/form/InputAuthor';
+import '../styles/mixins.scss';
 import '../styles/App.scss';
-import '../styles/variables.scss';
 
-const CreateProject =()=>{
-const [mensjRepo, setMensjRepo] = useState('');
+const CreateProject = () => {
+  const [mensjRepo, setMensjRepo] = useState('');
   const [mensjName, setMensjName] = useState('');
   const [url, setUrl] = useState('');
   const [hidden, setHidden] = useState(true);
@@ -84,8 +84,8 @@ const [mensjRepo, setMensjRepo] = useState('');
   };
 
   // const isValidForm = () => {
-    // El formulario solo es válido cuando los inputs de tipo texto no estén vacíos, cuando se haya marcado un tipo de pago y cuando los términos legales sean true
-    // También podríamos comprobar que el email tiene el formato correcto, pero no queremos complicar este ejemplo
+  // El formulario solo es válido cuando los inputs de tipo texto no estén vacíos, cuando se haya marcado un tipo de pago y cuando los términos legales sean true
+  // También podríamos comprobar que el email tiene el formato correcto, pero no queremos complicar este ejemplo
   //   if (
   //     name !== '' &&
   //     email !== '' &&
@@ -98,17 +98,15 @@ const [mensjRepo, setMensjRepo] = useState('');
   //   }
   // };
 
-
-    return(
-        <div className="App">
+  return (
+    <div className="App">
       {
         <div className="container">
           <Header />
           <main className="main">
             <section className="preview">
-              
               <ImgProject />
-              <Card data={data}/>
+              <Card data={data} />
             </section>
 
             <form className="form form2">
@@ -119,31 +117,30 @@ const [mensjRepo, setMensjRepo] = useState('');
                 <hr className="line" />
               </section>
 
-              <InputProject 
-              data={data}
-              handleInput={handleInput}
-              mensjName={mensjName}
-              mensjRepo={mensjRepo}
-               />
+              <InputProject
+                data={data}
+                handleInput={handleInput}
+                mensjName={mensjName}
+                mensjRepo={mensjRepo}
+              />
 
               <section className="ask-info">
                 <p className="subtitle">Cuéntanos sobre la autora</p>
                 <hr className="line" />
               </section>
 
-              <InputAuthor handleInput={handleInput}
-              data={data}/>
+              <InputAuthor handleInput={handleInput} data={data} />
 
               <section className="buttons-img">
-                <Buttons value={"Subir foto de proyecto"} className={"btn"}/>
-                <Buttons className={"btn"} value={"Subir foto de autora"}
-                />
+                <Buttons value={'Subir foto de proyecto'} className={'btn'} />
+                <Buttons className={'btn'} value={'Subir foto de autora'} />
               </section>
               <section className="buttons-img">
-                <Buttons className={"btn-large"} 
-                value={"Crear tarjeta"}
-                handleClick={handleClickCreateCard}
-                // disabled={isValidFor()}
+                <Buttons
+                  className={'btn-large'}
+                  value={'Crear tarjeta'}
+                  handleClick={handleClickCreateCard}
+                  // disabled={isValidFor()}
                 />
               </section>
 
@@ -172,7 +169,7 @@ const [mensjRepo, setMensjRepo] = useState('');
         </div>
       }
     </div>
-    );
-}
+  );
+};
 
 export default CreateProject;
