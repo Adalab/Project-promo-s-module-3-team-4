@@ -1,6 +1,6 @@
 /* SECCIÓN DE IMPORT */
 import '../styles/landing.scss';
-import logo from '../images/logoCool.png';
+import station from '../images/station.png';
 import iconComputer from '../images/iconoComp.png';
 import iconweb from '../images/iconoweb.png';
 import icongithub from '../images/iconogithub.png';
@@ -17,7 +17,7 @@ function Landing() {
             <img className="land-iconComputer" src={iconComputer} alt="icono" />
             <p className="land-text">Cool Project Station</p>
           </section>
-          <img className="land-logoCool" src={logo} alt="logo" />
+          <img className="land-logoCool" src={station} alt="logo" />
         </div>
         <div className="land-header__text">
           <h1 className="land-header__title">Cool Projects Station</h1>
@@ -217,7 +217,7 @@ function Landing() {
         </section>
       </main>
       <footer className="land-footer">
-        <img className="land-logoCool" src={logo} alt="icono" />
+        <img className="land-logoCool" src={station} alt="icono" />
         <span className="land-copy">&copy Module-3: Project Team 4</span>
       </footer>
     </div>

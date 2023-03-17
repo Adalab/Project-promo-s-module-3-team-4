@@ -4,10 +4,13 @@ import dataApi from '../service/api';
 import objectToExport from '../service/localstorege';
 import Header from './header/Header';
 import ImgProject from './main/preview/ImgProject';
+import station from '../images/station.png';
 import Card from './main/preview/Card';
 import Buttons from './main/form/Buttons';
 import InputProject from './main/form/InputProject';
 import InputAuthor from './main/form/InputAuthor';
+import GetAvatar from './main/preview/GetAvatar';
+import Profile from './main/preview/Profile';
 import '../styles/mixins.scss';
 import '../styles/App.scss';
 
@@ -16,6 +19,10 @@ const CreateProject = () => {
   const [mensjName, setMensjName] = useState('');
   const [url, setUrl] = useState('');
   const [hidden, setHidden] = useState(true);
+  const [avatar, setAvatar] = useState('');
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
 
   const [data, setData] = useState(
     objectToExport.get('dataLs', {
@@ -84,8 +91,7 @@ const CreateProject = () => {
   };
 
   // const isValidForm = () => {
-  // El formulario solo es válido cuando los inputs de tipo texto no estén vacíos, cuando se haya marcado un tipo de pago y cuando los términos legales sean true
-  // También podríamos comprobar que el email tiene el formato correcto, pero no queremos complicar este ejemplo
+  //
   //   if (
   //     name !== '' &&
   //     email !== '' &&
@@ -134,6 +140,10 @@ const CreateProject = () => {
               <section className="buttons-img">
                 <Buttons value={'Subir foto de proyecto'} className={'btn'} />
                 <Buttons className={'btn'} value={'Subir foto de autora'} />
+                <div>
+                  <GetAvatar avatar={avatar} updateAvatar={updateAvatar} />
+                  <Profile avatar={avatar} />
+                </div>
               </section>
               <section className="buttons-img">
                 <Buttons
@@ -166,6 +176,10 @@ const CreateProject = () => {
               </section>
             </form>
           </main>
+          <footer className="land-footer">
+            <img className="land-logoCool" src={station} alt="icono" />
+            <span className="land-copy">&copy Module-3: Project Team 4</span>
+          </footer>
         </div>
       }
     </div>
