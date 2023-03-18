@@ -1,9 +1,8 @@
-const Buttons =({value, className, handleClick, updateAvatar})=>{
+const Buttons =({value, className, handleClick})=>{
     return(
         <button 
         className={className}
         onClick={handleClick}
-        updateavatar={updateAvatar}
         >
             {value}
         </button>

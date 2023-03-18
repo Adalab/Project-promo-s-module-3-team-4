@@ -22,7 +22,9 @@ const CreateProject = () => {
   const [hidden, setHidden] = useState(true);
   const [avatar, setAvatar] = useState('');
 
-  const updateAvatar = (pepino) => {setAvatar(pepino) };
+  // const updateAvatar = (avatar) => {
+  //   setAvatar(avatar);
+  // };
 
 
   const [data, setData] = useState(
@@ -109,11 +111,15 @@ const CreateProject = () => {
         setHidden(true)
       }
     }
-  const updateImages = (avatar) => {
-    setData({ ...data, image: avatar });
-  };
+
   const updatePhoto = (avatar) => {
-    setData({ ...data, photo: avatar });
+          setAvatar(avatar)
+          setData({ ...data, photo: avatar });
+      };
+    
+  const updateImage = (avatar) => {
+      setAvatar(avatar)
+      setData({ ...data, image: avatar });
   };
 
   return (
@@ -123,7 +129,7 @@ const CreateProject = () => {
           <Header />
           <main className="main">
             <section className="preview">
-              <ImgProject />
+              <ImgProject data={data}/>
               <Card data={data} />
             </section>
 
@@ -149,13 +155,12 @@ const CreateProject = () => {
               <InputAuthor handleInput={handleInput} data={data} />
 
               <section className="buttons-img">
-                <Buttons value={'Subir foto de proyecto'} className={'btn'} updateavatar={updateImages}/>
-                <Buttons className={'btn'} value={'Subir foto de autora'} updateavatar={updatePhoto}/>
-                <div className=''>
-                  <GetAvatar  avatar={data.image} updateavatar={updateAvatar}/>
-                  <Profile avatar={data.photo} />
-                </div>
+                <Buttons value={'Subir foto de proyecto'} className={'btn'} />
+                <Buttons className={'btn'} value={'Subir foto de autora'} />
               </section>
+               <GetAvatar avatar={avatar} updateAvatar={updateImage} />
+               <GetAvatar avatar={avatar} updateAvatar={updatePhoto} />
+               <Profile avatar={avatar} />
               <section className="buttons-img">
                 <Buttons
                   className={'btn-large'}
