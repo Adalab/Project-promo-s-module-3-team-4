@@ -15,14 +15,15 @@ import '../styles/mixins.scss';
 import '../styles/App.scss';
 
 const CreateProject = () => {
+
   const [mensjRepo, setMensjRepo] = useState('');
-  const [mensjName, setMensjName] = useState('');
+  const [mensjError, setMensjError] = useState('');
   const [url, setUrl] = useState('');
   const [hidden, setHidden] = useState(true);
   const [avatar, setAvatar] = useState('');
-  const updateAvatar = (avatar) => {
-    setAvatar(avatar);
-  };
+
+  const updateAvatar = (pepino) => {setAvatar(pepino) };
+
 
   const [data, setData] = useState(
     objectToExport.get('dataLs', {
@@ -77,32 +78,43 @@ const CreateProject = () => {
     let regex = new RegExp(
       /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
     );
-    if (data.name === '') {
-      setMensjName('Te falta el nombre');
-    } else if (regex.test(data.repo)) {
-      setMensjRepo('');
-    } else {
-      setMensjRepo('Datos incorrectos');
-    }
 
-    if (data.name !== '' && data.repo !== '') {
-      setHidden(false);
+    if(data.name !== '' &&
+      data.slogan !== '' &&
+      data.repo !== '' &&
+      data.demo !== '' &&
+      data.technologies !== '' &&
+      data.desc !== '' &&
+      data.autor !== '' &&
+      data.job !== '' ){
+        if(regex.test(data.repo)){
+          setMensjRepo('');
+          setHidden(false)
+        }else{
+          setMensjRepo('Formato del URL incorrecto');
+          setHidden(true)
+        }
+      }else if(
+      data.name === '' ||
+      data.slogan === '' ||
+      data.repo === '' ||
+      data.demo === '' ||
+      data.technologies === '' ||
+      data.desc === '' ||
+      data.autor === '' ||
+      data.job === ''
+      ){
+        setMensjRepo('');
+        setMensjError('Faltan datos por rellenar');
+        setHidden(true)
+      }
     }
+  const updateImages = (avatar) => {
+    setData({ ...data, image: avatar });
   };
-
-  // const isValidForm = () => {
-  //
-  //   if (
-  //     name !== '' &&
-  //     email !== '' &&
-  //     paymentType !== '' &&
-  //     legalTerms === true
-  //   ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
+  const updatePhoto = (avatar) => {
+    setData({ ...data, photo: avatar });
+  };
 
   return (
     <div className="App">
@@ -126,7 +138,6 @@ const CreateProject = () => {
               <InputProject
                 data={data}
                 handleInput={handleInput}
-                mensjName={mensjName}
                 mensjRepo={mensjRepo}
               />
 
@@ -138,11 +149,11 @@ const CreateProject = () => {
               <InputAuthor handleInput={handleInput} data={data} />
 
               <section className="buttons-img">
-                <Buttons value={'Subir foto de proyecto'} className={'btn'} />
-                <Buttons className={'btn'} value={'Subir foto de autora'} />
-                <div>
-                  <GetAvatar avatar={avatar} updateAvatar={updateAvatar} />
-                  <Profile avatar={avatar} />
+                <Buttons value={'Subir foto de proyecto'} className={'btn'} updateavatar={updateImages}/>
+                <Buttons className={'btn'} value={'Subir foto de autora'} updateavatar={updatePhoto}/>
+                <div className=''>
+                  <GetAvatar  avatar={data.image} updateavatar={updateAvatar}/>
+                  <Profile avatar={data.photo} />
                 </div>
               </section>
               <section className="buttons-img">
@@ -150,7 +161,6 @@ const CreateProject = () => {
                   className={'btn-large'}
                   value={'Crear tarjeta'}
                   handleClick={handleClickCreateCard}
-                  // disabled={isValidFor()}
                 />
               </section>
 
@@ -158,8 +168,7 @@ const CreateProject = () => {
                 <span className={hidden ? 'hidden' : ''}>
                   {' '}
                   La tarjeta ha sido creada:{' '}
-                </span>
-                <a
+                  <a
                   href={url}
                   className="url_create"
                   target="_blank"
@@ -167,6 +176,9 @@ const CreateProject = () => {
                 >
                   {url}
                 </a>
+                </span>
+                <span className='mnsj'>{mensjError}</span>
+                
                 <img
                   src={trash}
                   alt="trash"
@@ -185,5 +197,6 @@ const CreateProject = () => {
     </div>
   );
 };
+
 
 export default CreateProject;

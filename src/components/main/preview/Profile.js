@@ -5,11 +5,13 @@ import '../../../styles/profile.scss';
 
 function Profile(props) {
   const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
+
   return (
     <div className="profile">
       <div
         className="profile__avatar"
         style={{ backgroundImage: `url(${avatar})` }}
+        // <img className="image" src={avatar} alt="" />;
       ></div>
     </div>
   );

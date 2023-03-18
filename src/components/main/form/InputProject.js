@@ -11,7 +11,6 @@ const InputProject =(props)=>{
                   value={props.data.name}
                   required
                 />
-                <span className="mensj">{props.mensjName}</span>
                 <input
                   className="input"
                   type="text"

@@ -55,7 +55,7 @@ function GetAvatar(props) {
 
     // aquí hago lifting con los datos del fichero
     // lo que haga el componente madre con esta información es otro problema diferente
-    props.updateAvatar(image);
+    props.updateavatar(image);
   };
 
   const avatar = props.avatar === '' ? defaultAvatar : props.avatar;

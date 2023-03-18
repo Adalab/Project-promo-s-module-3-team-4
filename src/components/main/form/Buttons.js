@@ -1,9 +1,9 @@
-const Buttons =({value, className, handleClick, disabled})=>{
+const Buttons =({value, className, handleClick, updateAvatar})=>{
     return(
         <button 
         className={className}
         onClick={handleClick}
-        disabled={disabled===false}
+        updateavatar={updateAvatar}
         >
             {value}
         </button>
