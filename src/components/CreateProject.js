@@ -10,7 +10,6 @@ import Buttons from './main/form/Buttons';
 import InputProject from './main/form/InputProject';
 import InputAuthor from './main/form/InputAuthor';
 import GetAvatar from './main/preview/GetAvatar';
-import Profile from './main/preview/Profile';
 import '../styles/mixins.scss';
 import '../styles/App.scss';
 
@@ -21,10 +20,6 @@ const CreateProject = () => {
   const [url, setUrl] = useState('');
   const [hidden, setHidden] = useState(true);
   const [avatar, setAvatar] = useState('');
-
-  // const updateAvatar = (avatar) => {
-  //   setAvatar(avatar);
-  // };
 
 
   const [data, setData] = useState(
@@ -39,7 +34,7 @@ const CreateProject = () => {
       job: '',
       image:
         'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
-      photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
+      photo: 'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
     })
   );
 
@@ -64,7 +59,7 @@ const CreateProject = () => {
       job: '',
       image:
         'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
-      photo: 'https://www.itmplatform.com/wp-content/uploads/33664005_m.jpg',
+      photo: 'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
     });
     setHidden(true);
     setUrl('');
@@ -90,6 +85,7 @@ const CreateProject = () => {
       data.autor !== '' &&
       data.job !== '' ){
         if(regex.test(data.repo)){
+          setMensjError(' ');
           setMensjRepo('');
           setHidden(false)
         }else{
@@ -155,12 +151,10 @@ const CreateProject = () => {
               <InputAuthor handleInput={handleInput} data={data} />
 
               <section className="buttons-img">
-                <Buttons value={'Subir foto de proyecto'} className={'btn'} />
-                <Buttons className={'btn'} value={'Subir foto de autora'} />
+                 <GetAvatar avatar={avatar} updateAvatar={updateImage}   value={'Subir foto de autora'}/>
+                 <GetAvatar avatar={avatar} updateAvatar={updatePhoto} value={'Subir foto de proyecto'} />
               </section>
-               <GetAvatar avatar={avatar} updateAvatar={updateImage} />
-               <GetAvatar avatar={avatar} updateAvatar={updatePhoto} />
-               <Profile avatar={avatar} />
+
               <section className="buttons-img">
                 <Buttons
                   className={'btn-large'}
@@ -171,16 +165,15 @@ const CreateProject = () => {
 
               <section className="card">
                 <span className={hidden ? 'hidden' : ''}>
-                  {' '}
-                  La tarjeta ha sido creada:{' '}
+                  La tarjeta ha sido creada:
                   <a
                   href={url}
                   className="url_create"
                   target="_blank"
                   rel="noreferrer"
-                >
+                  >
                   {url}
-                </a>
+                  </a>
                 </span>
                 <span className='mnsj'>{mensjError}</span>
                 
