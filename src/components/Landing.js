@@ -4,31 +4,32 @@ import station from '../images/station.png';
 import iconComputer from '../images/iconoComp.png';
 import iconweb from '../images/iconoweb.png';
 import icongithub from '../images/iconogithub.png';
-import defaultAvatar from '../images/defaultAvatar.png';
+//import defaultAvatar from '../images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 import objectToExport from '../service/localstorege';
-import trash from '../images/icons8-basura-100.png'
+import trash from '../images/icons8-basura-100.png';
 
 /* SECCIÓN DEL COMPONENTE */
-function Landing(props) {
-  const savedCards = objectToExport.get('cards') || [];
-
-  const handleTrashLi = () => {
-    objectToExport.remove('saveCards');
-
+function Landing(props, setSavedCards) {
+  const savedCards = objectToExport.get('cards', []);
+  {
+    /*splice elimino el objeto del array. Después, actualizo el localStorage con el nuevo array actualizado. Y finalmente actualizo el estado como corresponde con el setProducts() para que los cambios se reflejen en el DOM. Haciendo las cosas de esa manera, el estado item y su función setItem ya no serían necesarios*/
   }
+  const handleTrashLi = () => {
+    objectToExport.remove('cards', []);
+  };
 
   const renderLandingCard = () => {
     return savedCards.map((obj, index) => {
       return (
         <li key={index} className="landing-li">
           <section className="land-autor autOne">
-          <img
-                  src={trash}
-                  alt="trash"
-                  onClick={handleTrashLi}
-                  className="trashLi"
-                />
+            <img
+              src={trash}
+              alt="trash"
+              onClick={handleTrashLi}
+              className="trashLi"
+            />
             <section className="land-info-project">
               <p className="land-subtitle">Personal Project Card</p>
               <hr className="land-line" />
@@ -80,7 +81,7 @@ function Landing(props) {
     });
   };
   return (
-    <div className="Landing">
+    <div className="landing">
       <header className="land-header">
         <div className="land-contHeader">
           <section className="land-contHeader__oneSection">

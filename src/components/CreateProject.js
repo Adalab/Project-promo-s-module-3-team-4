@@ -14,7 +14,7 @@ import GetAvatar from './main/preview/GetAvatar';
 import '../styles/mixins.scss';
 import '../styles/App.scss';
 
-const CreateProject = () => {
+const CreateProject = ({ setSavedCards }) => {
   const [mensjRepo, setMensjRepo] = useState('');
   const [mensjError, setMensjError] = useState('');
   const [url, setUrl] = useState('');
@@ -36,8 +36,7 @@ const CreateProject = () => {
         'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
     })
   );
-  const savedCards = objectToExport.get('cards') || [];
-
+  const savedCards = objectToExport.get('cards', []);
 
   const handleInput = (ev) => {
     objectToExport.set('dataLs', data);
@@ -93,7 +92,7 @@ const CreateProject = () => {
         setMensjRepo('');
         setHidden(false);
         savedCards.push(data);
-       objectToExport.set('cards', savedCards);
+        objectToExport.set('cards', savedCards);
       } else {
         setMensjRepo('Formato del URL incorrecto');
         setHidden(true);
@@ -114,7 +113,6 @@ const CreateProject = () => {
       setMensjError('Faltan datos por rellenar');
       setHidden(true);
     }
-    
   };
 
   const updatePhoto = (avatar) => {

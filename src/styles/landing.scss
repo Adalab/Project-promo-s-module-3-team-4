@@ -3,6 +3,7 @@
 
 
 .land-header {
+    height: 30vh;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -80,12 +81,13 @@ gap: 1rem;
     font-size: 1rem;
 }
 
-
-
-.landing-ul {
+.land-main{
+    height: 55vh;
     padding: 2rem;
     background-color: $dark;
 }
+
+
 
 .trashLi{
     width: 3rem;
@@ -190,6 +192,7 @@ width: 60%;
 }
 
 .land-footer{
+    height: 10vh;
     background-color: $dark;
     padding: 2rem;
     display: flex;
