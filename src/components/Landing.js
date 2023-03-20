@@ -6,11 +6,67 @@ import iconweb from '../images/iconoweb.png';
 import icongithub from '../images/iconogithub.png';
 import defaultAvatar from '../images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
-//import objectToExport from '../service/localstorege';
-//import Card from './main/preview/Card';
+import objectToExport from '../service/localstorege';
 
 /* SECCIÓN DEL COMPONENTE */
-function Landing() {
+function Landing(props) {
+  const savedCards = objectToExport.get('cards') || [];
+
+  const renderLandingCard = () => {
+    return savedCards.map((obj, index) => {
+      return (
+        <li key={index} className="landing-li">
+          <section className="land-autor autOne">
+            <section className="land-info-project">
+              <p className="land-subtitle">Personal Project Card</p>
+              <hr className="land-line" />
+              <h2 className="land-title-preview">{obj.name}</h2>
+              <p className="land-slogan">{obj.slogan}</p>
+              <p className="land-desc">{obj.desc}</p>
+              <section className="land-technologies">
+                <p className="land-textTec">{obj.technologies}</p>
+                <div className="land-div_icon">
+                  <a
+                    className="land-icon"
+                    href={obj.repo}
+                    title=""
+                    target="_blank"
+                  >
+                    <img
+                      src={icongithub}
+                      title="enlace a repositorio"
+                      alt="icono repositorio"
+                      className="land-iconGH"
+                    />
+                  </a>
+                  <a
+                    className="land-icon"
+                    href={obj.demo}
+                    title=""
+                    target="_blank"
+                  >
+                    <img
+                      src={iconweb}
+                      title="enlace a web"
+                      alt="icono web"
+                      className="land-iconWB"
+                    />
+                  </a>
+                </div>
+              </section>
+            </section>
+            <section className="land-info-autor">
+              <div className="land-img">
+                <img className="land-image" src={defaultAvatar} alt="user" />
+              </div>
+              <p className="land-job">{obj.job}</p>
+              <p className="land-name">{obj.autor}</p>
+            </section>
+          </section>
+        </li>
+      );
+    });
+  };
   return (
     <div className="Landing">
       <header className="land-header">
@@ -41,182 +97,7 @@ function Landing() {
         </div>
       </header>
       <main className="land-main">
-        <section className="land-autor autOne">
-          <section className="land-info-project">
-            <p className="land-subtitle">Personal Project Card</p>
-            <hr className="land-line" />
-
-            <h2 className="land-title-preview">Elegant Workspace</h2>
-            <p className="land-slogan">Diseños Exclusivos</p>
-            <p className="land-desc">
-              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero,
-              delectus? Voluptates at hic aliquam porro ad suscipit harum
-              laboriosam saepe earum doloribus aperiam,ullam culpa accusantium
-              placeat odit corrupti ipsum!
-            </p>
-            <section className="land-technologies">
-              <p className="land-textTec">React JS - HTML - CSS</p>
-              <div className="land-div_icon">
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={icongithub}
-                    title="enlace a repositorio"
-                    alt="icono repositorio"
-                    className="land-iconGH"
-                  />
-                </a>
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={iconweb}
-                    title="enlace a web"
-                    alt="icono web"
-                    className="land-iconWB"
-                  />
-                </a>
-              </div>
-            </section>
-          </section>
-
-          <section className="land-info-autor">
-            <div className="land-img">
-              <img className="land-image" src={defaultAvatar} alt="user" />
-            </div>
-            <p className="land-job">Full Stack Developer</p>
-            <p className="land-name">Emmelie Björklund</p>
-          </section>
-        </section>
-        <section className="land-autor autTwo">
-          <section className="land-info-project">
-            <p className="land-subtitle">Personal Project Card</p>
-            <hr className="land-line" />
-
-            <h2 className="land-title-preview">Elegant Workspace</h2>
-            <p className="land-slogan">Diseños Exclusivos</p>
-            <p className="land-desc">
-              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero,
-              delectus? Voluptates at hic aliquam porro ad suscipit harum
-              laboriosam saepe earum doloribus aperiam,ullam culpa accusantium
-              placeat odit corrupti ipsum!
-            </p>
-            <section className="land-technologies">
-              <p className="land-textTec">React JS - HTML - CSS</p>
-              <div className="land-div_icon">
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={icongithub}
-                    title="enlace a repositorio"
-                    alt="icono repositorio"
-                    className="land-iconGH"
-                  />
-                </a>
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={iconweb}
-                    title="enlace a web"
-                    alt="icono web"
-                    className="land-iconWB"
-                  />
-                </a>
-              </div>
-            </section>
-          </section>
-
-          <section className="land-info-autor">
-            <div className="land-img">
-              <img className="land-image" src={defaultAvatar} alt="user" />
-            </div>
-            <p className="land-job">Full Stack Developer</p>
-            <p className="land-name">Emmelie Björklund</p>
-          </section>
-        </section>
-        <section className="land-autor autThree">
-          <section className="land-info-project">
-            <p className="land-subtitle">Personal Project Card</p>
-            <hr className="land-line" />
-
-            <h2 className="land-title-preview">Elegant Workspace</h2>
-            <p className="land-slogan">Diseños Exclusivos</p>
-            <p className="land-desc">
-              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero,
-              delectus? Voluptates at hic aliquam porro ad suscipit harum
-              laboriosam saepe earum doloribus aperiam,ullam culpa accusantium
-              placeat odit corrupti ipsum!
-            </p>
-            <section className="land-technologies">
-              <p className="land-textTec">React JS - HTML - CSS</p>
-              <div className="land-div_icon">
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={icongithub}
-                    title="enlace a repositorio"
-                    alt="icono repositorio"
-                    className="land-iconGH"
-                  />
-                </a>
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={iconweb}
-                    title="enlace a web"
-                    alt="icono web"
-                    className="land-iconWB"
-                  />
-                </a>
-              </div>
-            </section>
-          </section>
-
-          <section className="land-info-autor">
-            <div className="land-img">
-              <img className="land-image" src={defaultAvatar} alt="user" />
-            </div>
-            <p className="land-job">Full Stack Developer</p>
-            <p className="land-name">Emmelie Björklund</p>
-          </section>
-        </section>
-        <section className="land-autor autFour">
-          <section className="land-info-project">
-            <p className="land-subtitle">Personal Project Card</p>
-            <hr className="land-line" />
-
-            <h2 className="land-title-preview">Elegant Workspace</h2>
-            <p className="land-slogan">Diseños Exclusivos</p>
-            <p className="land-desc">
-              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero,
-              delectus? Voluptates at hic aliquam porro ad suscipit harum
-              laboriosam saepe earum doloribus aperiam,ullam culpa accusantium
-              placeat odit corrupti ipsum!
-            </p>
-            <section className="land-technologies">
-              <p className="land-textTec">React JS - HTML - CSS</p>
-              <div className="land-div_icon">
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={icongithub}
-                    title="enlace a repositorio"
-                    alt="icono repositorio"
-                    className="land-iconGH"
-                  />
-                </a>
-                <a className="land-icon" href="./" target="_blank">
-                  <img
-                    src={iconweb}
-                    title="enlace a web"
-                    alt="icono web"
-                    className="land-iconWB"
-                  />
-                </a>
-              </div>
-            </section>
-          </section>
-
-          <section className="land-info-autor">
-            <div className="land-img">
-              <img className="land-image" src={defaultAvatar} alt="user" />
-            </div>
-            <p className="land-job">Full Stack Developer</p>
-            <p className="land-name">Emmelie Björklund</p>
-          </section>
-        </section>
+        <ul className="landing-ul">{renderLandingCard()}</ul>
       </main>
       <footer className="land-footer">
         <img className="land-logoCool" src={station} alt="icono" />
