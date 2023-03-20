@@ -7,16 +7,28 @@ import icongithub from '../images/iconogithub.png';
 import defaultAvatar from '../images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
 import objectToExport from '../service/localstorege';
+import trash from '../images/icons8-basura-100.png'
 
 /* SECCIÓN DEL COMPONENTE */
 function Landing(props) {
   const savedCards = objectToExport.get('cards') || [];
+
+  const handleTrashLi = () => {
+    objectToExport.remove('saveCards');
+
+  }
 
   const renderLandingCard = () => {
     return savedCards.map((obj, index) => {
       return (
         <li key={index} className="landing-li">
           <section className="land-autor autOne">
+          <img
+                  src={trash}
+                  alt="trash"
+                  onClick={handleTrashLi}
+                  className="trashLi"
+                />
             <section className="land-info-project">
               <p className="land-subtitle">Personal Project Card</p>
               <hr className="land-line" />
@@ -57,7 +69,7 @@ function Landing(props) {
             </section>
             <section className="land-info-autor">
               <div className="land-img">
-                <img className="land-image" src={defaultAvatar} alt="user" />
+                <img className="land-image" src={obj.image} alt="user" />
               </div>
               <p className="land-job">{obj.job}</p>
               <p className="land-name">{obj.autor}</p>

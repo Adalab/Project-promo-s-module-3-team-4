@@ -38,6 +38,7 @@ const CreateProject = () => {
   );
   const savedCards = objectToExport.get('cards') || [];
 
+
   const handleInput = (ev) => {
     objectToExport.set('dataLs', data);
     ev.preventDefault();
@@ -91,6 +92,8 @@ const CreateProject = () => {
         setMensjError(' ');
         setMensjRepo('');
         setHidden(false);
+        savedCards.push(data);
+       objectToExport.set('cards', savedCards);
       } else {
         setMensjRepo('Formato del URL incorrecto');
         setHidden(true);
@@ -103,14 +106,15 @@ const CreateProject = () => {
       data.technologies === '' ||
       data.desc === '' ||
       data.autor === '' ||
-      data.job === ''
+      data.job === '' ||
+      data.image === '' ||
+      data.photo === ''
     ) {
       setMensjRepo('');
       setMensjError('Faltan datos por rellenar');
       setHidden(true);
     }
-    savedCards.push(data);
-    objectToExport.set('cards', savedCards);
+    
   };
 
   const updatePhoto = (avatar) => {
