@@ -10,18 +10,16 @@ import Buttons from './main/form/Buttons';
 import InputProject from './main/form/InputProject';
 import InputAuthor from './main/form/InputAuthor';
 import GetAvatar from './main/preview/GetAvatar';
+//import defaultAvatar from '../images/defaultAvatar';
 import '../styles/mixins.scss';
 import '../styles/App.scss';
 
 const CreateProject = () => {
-
   const [mensjRepo, setMensjRepo] = useState('');
   const [mensjError, setMensjError] = useState('');
   const [url, setUrl] = useState('');
   const [hidden, setHidden] = useState(true);
   const [avatar, setAvatar] = useState('');
-
-
   const [data, setData] = useState(
     objectToExport.get('dataLs', {
       name: '',
@@ -34,9 +32,11 @@ const CreateProject = () => {
       job: '',
       image:
         'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
-      photo: 'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
+      photo:
+        'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
     })
   );
+  const savedCards = objectToExport.get('cards') || [];
 
   const handleInput = (ev) => {
     objectToExport.set('dataLs', data);
@@ -59,12 +59,13 @@ const CreateProject = () => {
       job: '',
       image:
         'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
-      photo: 'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
+      photo:
+        'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
     });
     setHidden(true);
     setUrl('');
 
-    objectToExport.clear('dataLs', data);
+    objectToExport.remove('dataLs', data);
   };
 
   const handleClickCreateCard = (ev) => {
@@ -76,23 +77,25 @@ const CreateProject = () => {
       /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
     );
 
-    if(data.name !== '' &&
+    if (
+      data.name !== '' &&
       data.slogan !== '' &&
       data.repo !== '' &&
       data.demo !== '' &&
       data.technologies !== '' &&
       data.desc !== '' &&
       data.autor !== '' &&
-      data.job !== '' ){
-        if(regex.test(data.repo)){
-          setMensjError(' ');
-          setMensjRepo('');
-          setHidden(false)
-        }else{
-          setMensjRepo('Formato del URL incorrecto');
-          setHidden(true)
-        }
-      }else if(
+      data.job !== ''
+    ) {
+      if (regex.test(data.repo)) {
+        setMensjError(' ');
+        setMensjRepo('');
+        setHidden(false);
+      } else {
+        setMensjRepo('Formato del URL incorrecto');
+        setHidden(true);
+      }
+    } else if (
       data.name === '' ||
       data.slogan === '' ||
       data.repo === '' ||
@@ -101,21 +104,23 @@ const CreateProject = () => {
       data.desc === '' ||
       data.autor === '' ||
       data.job === ''
-      ){
-        setMensjRepo('');
-        setMensjError('Faltan datos por rellenar');
-        setHidden(true)
-      }
+    ) {
+      setMensjRepo('');
+      setMensjError('Faltan datos por rellenar');
+      setHidden(true);
     }
+    savedCards.push(data);
+    objectToExport.set('cards', savedCards);
+  };
 
   const updatePhoto = (avatar) => {
-          setAvatar(avatar)
-          setData({ ...data, photo: avatar });
-      };
-    
+    setAvatar(avatar);
+    setData({ ...data, photo: avatar });
+  };
+
   const updateImage = (avatar) => {
-      setAvatar(avatar)
-      setData({ ...data, image: avatar });
+    setAvatar(avatar);
+    setData({ ...data, image: avatar });
   };
 
   return (
@@ -125,7 +130,7 @@ const CreateProject = () => {
           <Header />
           <main className="main">
             <section className="preview">
-              <ImgProject data={data}/>
+              <ImgProject data={data} />
               <Card data={data} />
             </section>
 
@@ -151,8 +156,16 @@ const CreateProject = () => {
               <InputAuthor handleInput={handleInput} data={data} />
 
               <section className="buttons-img">
-                 <GetAvatar avatar={avatar} updateAvatar={updateImage}   value={'Subir foto de autora'}/>
-                 <GetAvatar avatar={avatar} updateAvatar={updatePhoto} value={'Subir foto de proyecto'} />
+                <GetAvatar
+                  avatar={avatar}
+                  updateAvatar={updateImage}
+                  value={'Subir foto de autora'}
+                />
+                <GetAvatar
+                  avatar={avatar}
+                  updateAvatar={updatePhoto}
+                  value={'Subir foto de proyecto'}
+                />
               </section>
 
               <section className="buttons-img">
@@ -167,16 +180,16 @@ const CreateProject = () => {
                 <span className={hidden ? 'hidden' : ''}>
                   La tarjeta ha sido creada:
                   <a
-                  href={url}
-                  className="url_create"
-                  target="_blank"
-                  rel="noreferrer"
+                    href={url}
+                    className="url_create"
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                  {url}
+                    {url}
                   </a>
                 </span>
-                <span className='mnsj'>{mensjError}</span>
-                
+                <span className="mnsj">{mensjError}</span>
+
                 <img
                   src={trash}
                   alt="trash"
@@ -195,6 +208,5 @@ const CreateProject = () => {
     </div>
   );
 };
-
 
 export default CreateProject;

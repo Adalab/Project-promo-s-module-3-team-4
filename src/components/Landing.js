@@ -4,8 +4,10 @@ import station from '../images/station.png';
 import iconComputer from '../images/iconoComp.png';
 import iconweb from '../images/iconoweb.png';
 import icongithub from '../images/iconogithub.png';
-import user from '../images/user.jpeg';
+import defaultAvatar from '../images/defaultAvatar.png';
 import { Link } from 'react-router-dom';
+//import objectToExport from '../service/localstorege';
+//import Card from './main/preview/Card';
 
 /* SECCIÓN DEL COMPONENTE */
 function Landing() {
@@ -77,7 +79,7 @@ function Landing() {
 
           <section className="land-info-autor">
             <div className="land-img">
-              <img className="land-image" src={user} alt="user" />
+              <img className="land-image" src={defaultAvatar} alt="user" />
             </div>
             <p className="land-job">Full Stack Developer</p>
             <p className="land-name">Emmelie Björklund</p>
@@ -121,7 +123,7 @@ function Landing() {
 
           <section className="land-info-autor">
             <div className="land-img">
-              <img className="land-image" src={user} alt="user" />
+              <img className="land-image" src={defaultAvatar} alt="user" />
             </div>
             <p className="land-job">Full Stack Developer</p>
             <p className="land-name">Emmelie Björklund</p>
@@ -165,7 +167,7 @@ function Landing() {
 
           <section className="land-info-autor">
             <div className="land-img">
-              <img className="land-image" src={user} alt="user" />
+              <img className="land-image" src={defaultAvatar} alt="user" />
             </div>
             <p className="land-job">Full Stack Developer</p>
             <p className="land-name">Emmelie Björklund</p>
@@ -209,7 +211,7 @@ function Landing() {
 
           <section className="land-info-autor">
             <div className="land-img">
-              <img className="land-image" src={user} alt="user" />
+              <img className="land-image" src={defaultAvatar} alt="user" />
             </div>
             <p className="land-job">Full Stack Developer</p>
             <p className="land-name">Emmelie Björklund</p>

@@ -1,6 +1,6 @@
 import iconweb from '../../../images/iconoweb.png';
 import icongithub from '../../../images/iconogithub.png';
-
+import Profile from './Profile';
 function Card(props) {
   return (
     <section className="autor">
@@ -44,7 +44,13 @@ function Card(props) {
 
       <section className="info-autor">
         <div className="img">
-          <img className="image" src={props.data.image} alt="user" />
+          <Profile
+            className="image"
+            defaultAvatar={props.defaultAvatar}
+            avatar={props.data.image}
+            src={props.data.photo}
+            alt="user"
+          />
         </div>
         <p className="job"> {props.data.job || 'Full Stack Developer'}</p>
         <p className="name">{props.data.autor || 'Emmelie Björklund'}</p>
