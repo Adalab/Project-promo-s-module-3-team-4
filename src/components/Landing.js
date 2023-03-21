@@ -15,8 +15,14 @@ function Landing(props, setSavedCards) {
   {
     /*splice elimino el objeto del array. Después, actualizo el localStorage con el nuevo array actualizado. Y finalmente actualizo el estado como corresponde con el setProducts() para que los cambios se reflejen en el DOM. Haciendo las cosas de esa manera, el estado item y su función setItem ya no serían necesarios*/
   }
-  const handleTrashLi = () => {
-    objectToExport.remove('cards', []);
+  // const handleTrashLi = () => {
+  // objectToExport.remove('cards', []);
+  //};
+  const handleTrashLi = (index) => {
+    const updatedCards = [...savedCards]; // create a copy of the array
+    updatedCards.splice(index, 1); // remove the object at the given index
+    objectToExport.set('cards', updatedCards); // update the local storage with the new array
+    setSavedCards(updatedCards); // update the state with the new array
   };
 
   const renderLandingCard = () => {
@@ -119,5 +125,4 @@ function Landing(props, setSavedCards) {
     </div>
   );
 }
-
 export default Landing;
