@@ -7,7 +7,8 @@ function Header(props) {
     <header className="header">
       <div className="contHeader">
         <img className="iconComputer" src={iconComputer} alt="icono" />
-        <p className="text">Cool Project Station</p>
+        <a href='../Landing.js' title='Return to Landing'>
+        <p className="text">Cool Project Station</p></a>
       </div>
       <img className="logoCool" src={station} alt="logo" />
     </header>

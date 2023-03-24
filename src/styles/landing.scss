@@ -1,7 +1,9 @@
 @import '../styles/reset.scss';
 @import '../styles/variables.scss';
 
-
+.landing {
+    background-color: $dark;
+}
 .land-header {
     padding: 2rem;
     display: flex;
@@ -80,17 +82,22 @@ gap: 1rem;
     font-size: 1rem;
 }
 
-
-
-.land-main {
+.land-main{
     padding: 2rem;
     background-color: $dark;
 }
+
+
+
+.trashLi{
+    width: 3rem;
+    height: 3rem;
+  }
+
 .land-autor{
     background-color: $white;
     margin-bottom: 1rem;
     border-radius: 20px;
-    height: 350px;
     padding: .8rem;
     display: flex;
     flex-direction: row-reverse;
@@ -156,8 +163,8 @@ width: 60%;
 }
 
 .land-img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 1rem;
     border-radius: 40%;
     border: 3px solid black;
@@ -185,6 +192,7 @@ width: 60%;
 }
 
 .land-footer{
+    width: 100%;
     background-color: $dark;
     padding: 2rem;
     display: flex;
@@ -204,32 +212,18 @@ width: 60%;
         height: 30%;
         padding: 2rem;
     }
-       .land-main{
+       .landing-ul{
         height: 60%;
         padding: 2rem;
-        display: grid;
-        grid-template-columns: 1fr, 1fr;
-        column-gap: 2rem;
-        justify-content: space-evenly;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
     }
     .land-autor{
         width: 500px;
-        height: 400px;
     }
-    .autOne{
-        grid-column: 1/2;
-    }
-    .autTwo{
-        grid-column: 2/3;
-    }
-    .autThree{
-        grid-column: 1/2;
-    }
-    .autFour{
-        grid-column: 2/3;
-    }
-
-
     .land-footer{
         height: 10%;
         padding: 2rem;
