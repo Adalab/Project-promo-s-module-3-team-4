@@ -12,18 +12,14 @@ import { useState } from 'react';
 
 /* SECCIÓN DEL COMPONENTE */
 function Landing(props, setSavedCards) {
-  const savedCards = objectToExport.get('cards', []);
-  {
-    /*splice elimino el objeto del array. Después, actualizo el localStorage con el nuevo array actualizado. Y finalmente actualizo el estado como corresponde con el setProducts() para que los cambios se reflejen en el DOM. Haciendo las cosas de esa manera, el estado item y su función setItem ya no serían necesarios*/
-  }
-  // const handleTrashLi = () => {
-  // objectToExport.remove('cards', []);
-  //};
-  const handleTrashLi = (index) => {
-    const updatedCards = [...savedCards]; // create a copy of the array
-    updatedCards.splice(index, 1); // remove the object at the given index
-    objectToExport.set('cards', updatedCards); // update the local storage with the new array
-    setSavedCards(updatedCards); // update the state with the new array
+  const [cardProject, setCardProject] = useState(
+    objectToExport.get('cards', [])
+  );
+
+  const handleTrashLi = (ev) => {
+    cardProject.splice(ev.target.id, 1);
+    objectToExport.set('cards', cardProject);
+    setCardProject([...cardProject]);
   };
 
   const renderLandingCard = () => {
@@ -50,7 +46,7 @@ function Landing(props, setSavedCards) {
                   <a
                     className="land-icon"
                     href={obj.repo}
-                    title=""
+                    title="repo"
                     target="_blank"
                   >
                     <img
@@ -99,9 +95,9 @@ function Landing(props, setSavedCards) {
           <img className="land-logoCool" src={station} alt="logo" />
         </div>
         <div className="land-header__text">
-          <h1 className="land-header__title">Cool Project Station</h1>
+          <h1 className="land-header__title">Cool Projects Station</h1>
           <h2 className="land-header__subtitle">
-            Escaparate en línea para recoger ideas a través de la tecnología.
+            Escaparate en línea para recoger ideas a traves de la tecnología.
           </h2>
           <form className="land-header__form">
             <button className="land-btnNew">
