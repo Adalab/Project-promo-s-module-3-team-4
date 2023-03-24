@@ -14,28 +14,12 @@ import GetAvatar from './main/preview/GetAvatar';
 import '../styles/mixins.scss';
 import '../styles/App.scss';
 
-<<<<<<< HEAD
-const CreateProject = ({ dataCardList, setDataCardList }) => {
-=======
 const CreateProject = ({ setSavedCards }) => {
->>>>>>> origin/main
   const [mensjRepo, setMensjRepo] = useState('');
   const [mensjError, setMensjError] = useState('');
   const [url, setUrl] = useState('');
   const [hidden, setHidden] = useState(true);
-<<<<<<< HEAD
-  const [avatar, setAvatar] = useState(
-    objectToExport.get('cardAvatar', {
-      image:
-        'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
-      photo:
-        'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
-    })
-  );
-
-=======
   const [avatar, setAvatar] = useState('');
->>>>>>> origin/main
   const [data, setData] = useState(
     objectToExport.get('dataLs', {
       name: '',
@@ -46,13 +30,10 @@ const CreateProject = ({ setSavedCards }) => {
       desc: '',
       autor: '',
       job: '',
-<<<<<<< HEAD
-=======
       image:
         'https://w7.pngwing.com/pngs/851/653/png-transparent-doll-drawing-doll-pic-miscellaneous-child-human.png',
       photo:
         'https://coachready.com/dev/wp-content/uploads/2015/09/nuevo-mundo-del-trabajo.jpg',
->>>>>>> origin/main
     })
   );
   const savedCards = objectToExport.get('cards', []);
@@ -118,19 +99,11 @@ const CreateProject = ({ setSavedCards }) => {
         setMensjError(' ');
         setMensjRepo('');
         setHidden(false);
-<<<<<<< HEAD
-      } else {
-        setMensjRepo('Formato del URL incorrecto');
-        setHidden(true);
-        dataCardList.push(data);
-        setDataCardList([...dataCardList]);
-=======
         savedCards.push(data);
         objectToExport.set('cards', savedCards);
       } else {
         setMensjRepo('Formato del URL incorrecto');
         setHidden(true);
->>>>>>> origin/main
       }
     } else if (
       data.name === '' ||
@@ -140,13 +113,9 @@ const CreateProject = ({ setSavedCards }) => {
       data.technologies === '' ||
       data.desc === '' ||
       data.autor === '' ||
-<<<<<<< HEAD
-      data.job === ''
-=======
       data.job === '' ||
       data.image === '' ||
       data.photo === ''
->>>>>>> origin/main
     ) {
       setMensjRepo('');
       setMensjError('Faltan datos por rellenar');
